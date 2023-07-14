@@ -55,14 +55,32 @@
                 <p>{{ board.user.username }}</p>
               </div>
               <div class="sec-profile-school">
-                <p>멋사여자대학교</p>
+                <p>{{ board.user.school_name }}</p>
               </div>
             </div>
           </div>
+          {% if board.user == request.user %}
+          <div class="rewrite-delete-write-time">
+            <div class="rewrite-delete">
+              <a href="{% url 'board_post' %}"><p>수정</p></a>
+              <p>삭제</p>
+            </div>
+            <div class="write-time">
+              <p>작성시간</p>
+              <p>{{ board.created_at }}</p>
+            </div>
+          </div>
+          {% else %}
           <div class="write-time">
             <p>작성시간</p>
             <p>{{ board.created_at }}</p>
           </div>
+          <style>
+            .write-time {
+              margin-top: 20px;
+            }
+          </style>
+          {% endif %}
         </div>     
         <div class="sec-content">
           <div class="sec-content-box">
@@ -176,10 +194,64 @@
               {{ message }}
             {% endfor %}
           </ul>
-          {% endif %}
+          {% endif %}       
         {% endif %}
         </div>
-        {% endfor %}      
+        {% endfor %}
+        <!-- 작성자 본인 -->
+        {% else %}
+        <div class="comment-title-box">
+          {% for comment in board.comment_set.all %}
+          {% if forloop.counter == 1 %}
+            <!-- 모집 완료-->
+            {% if comment.board.complete %}
+              <div class="comment-title">
+                <p>안도의 후기</p>
+              </div>
+            {% else %}
+            <!-- 모집 중 -->
+            <div class="comment-title">
+              <p>안도 채팅</p>
+            </div>
+            <!-- <div class="comment-btn">
+              <a href="{% url 'board_done' pk=board.pk %}"><p>모집완료</p></a>
+              </div>
+              {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  {% if message.tags %} {% endif %}
+                  {{ message }}
+                {% endfor %}
+              </ul>
+              {% endif %} -->
+            {% endif %}
+            </div>
+          {% endif %}
+          {% empty %}
+           <!-- 모집 완료-->
+            {% if comment.board.complete %}
+            <div class="comment-title">
+              <p>안도의 후기</p>
+            </div>
+          {% else %}
+          <!-- 모집 중 -->
+          <div class="comment-title">
+            <p>안도 채팅</p>
+          </div>
+          <!-- <div class="comment-btn">
+            <a href="{% url 'board_done' pk=board.pk %}"><p>모집완료</p></a>
+            </div>
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                {% if message.tags %} {% endif %}
+                {{ message }}
+              {% endfor %}
+            </ul>
+            {% endif %}        -->
+          {% endif %}
+          </div>
+          {% endfor %}     
         {% endif %}
         <!-- 채팅 목록 -->
         {% for comment in board.comment_set.all %}
