@@ -1,3 +1,9 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
 /* initial */
 @font-face {
   font-family: "Pretendard-Regular";
@@ -5,6 +11,12 @@
     format("woff");
   font-weight: 400;
   font-style: normal;
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 img {
@@ -15,7 +27,6 @@ img {
 body {
   margin: 0;
   font-family: "Pretendard-Regular";
-  background-color: #f6f6f6;
 }
 
 a:link,
@@ -30,7 +41,7 @@ p {
 
 /* header */
 .hd {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -62,8 +73,8 @@ p {
 /* section */
 .sec-total {
   overflow-y: auto;
-  padding-top: 48px;
   height: calc(100vh - 48px - 41px);
+  background-color: #f6f6f6;
 }
 
 .sec-total::-webkit-scrollbar {
@@ -71,15 +82,16 @@ p {
 }
 
 /* sec-title */
+.sec-title > p {
+  padding: 13px 16px;
+  font-size: 28px;
+  font-weight: bolder;
+  text-align: left;
+}
 .sec-title {
   background-color: white;
-  margin-bottom: 8px;
-  border: 1px solid #b3b3b3;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
+  border-bottom: 1px solid #b3b3b3;
 }
-
 .sec-title > p {
   padding: 13px 16px;
   font-size: 28px;
@@ -90,7 +102,7 @@ p {
 .sec-profile-time {
   display: flex;
   justify-content: space-between;
-  margin: 12px 16px -10px 16px;
+  margin: 9px 16px -10px 22px;
   align-items: center;
 }
 
@@ -102,7 +114,6 @@ p {
 .sec-profile-img {
   width: 44px;
   height: 44px;
-  background-color: white;
   border: none;
   border-radius: 44px;
   display: flex;
@@ -111,8 +122,10 @@ p {
 }
 
 .sec-profile-img img {
-  height: 18px;
-  filter: brightness(85%) saturate(120%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 44px;
 }
 
 .sec-profile-content {
@@ -121,6 +134,8 @@ p {
 
 .sec-profile-id p {
   font-size: 15px;
+  font-weight: bold;
+  text-align: left;
 }
 
 .sec-profile-school p {
@@ -128,11 +143,27 @@ p {
   font-size: 10px;
 }
 
+.rewrite-delete-write-time {
+  display: flex;
+  height: 44px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rewrite-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rewrite-delete p {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
 .write-time {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 20px;
 }
 
 .write-time p {
@@ -185,6 +216,7 @@ p {
 .startpoint-address-2,
 .endpoint-address-2 {
   margin-top: 20px;
+  text-align: left;
 }
 
 .startpoint-address-2 p,
@@ -283,9 +315,14 @@ p {
 
 .id_text_content p {
   font-size: 15px;
+  text-align: left;
 }
 
 /* sec-comment */
+.messages {
+  display: none;
+}
+
 .sec-comment {
   background-color: #1c4747;
   border: none;
@@ -390,7 +427,6 @@ p {
 .other-profile-img {
   width: 27px;
   height: 27px;
-  background-color: white;
   border: none;
   border-radius: 44px;
   display: flex;
@@ -399,8 +435,10 @@ p {
 }
 
 .other-profile-img img {
-  height: 11px;
-  filter: brightness(85%) saturate(120%);
+  width: 27px;
+  height: 27px;
+  border: none;
+  border-radius: 44px;
 }
 
 .other-id {
@@ -416,6 +454,7 @@ p {
 .nav {
   position: fixed;
   bottom: 0;
+  left: 0px;
   width: 100%;
   z-index: 1;
   height: 41px;

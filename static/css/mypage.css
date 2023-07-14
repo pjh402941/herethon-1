@@ -23,6 +23,10 @@ body {
   text-align: center;
   overflow: auto;
   background-color: #f6f6f6;
+  -ms-overflow-style: none;
+}
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 header.hd {
