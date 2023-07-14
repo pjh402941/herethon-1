@@ -35,7 +35,11 @@
           <div class="select-wrap">
             <div class="select-box">
               <div class="location-box">
-                <select name="locations" id="location-select">
+                <select
+                  name="locations"
+                  id="location-select"
+                  onchange="this.form.submit()"
+                >
                   <option value="" id="default">
                     출발 지역 선택&nbsp&nbsp ▼
                   </option>
