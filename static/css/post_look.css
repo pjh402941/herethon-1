@@ -114,7 +114,6 @@ p {
 .sec-profile-img {
   width: 44px;
   height: 44px;
-  background-color: white;
   border: none;
   border-radius: 44px;
   display: flex;
@@ -123,8 +122,10 @@ p {
 }
 
 .sec-profile-img img {
-  height: 18px;
-  filter: brightness(85%) saturate(120%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 44px;
 }
 
 .sec-profile-content {
@@ -426,7 +427,6 @@ p {
 .other-profile-img {
   width: 27px;
   height: 27px;
-  background-color: white;
   border: none;
   border-radius: 44px;
   display: flex;
@@ -435,8 +435,10 @@ p {
 }
 
 .other-profile-img img {
-  height: 11px;
-  filter: brightness(85%) saturate(120%);
+  width: 27px;
+  height: 27px;
+  border: none;
+  border-radius: 44px;
 }
 
 .other-id {

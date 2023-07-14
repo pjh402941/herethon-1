@@ -48,7 +48,7 @@
         <div class="sec-profile-time">
           <div class="sec-profile">
             <div class="sec-profile-img">
-              <img src="{% static 'image/profile.png' %}" alt="프로필 이미지" />             
+              <img src="{{ board.user.user_profile.url }}" alt="프로필 이미지" />             
             </div>
             <div class="sec-profile-content">
               <div class="sec-profile-id">
@@ -260,7 +260,7 @@
           {% if comment.review %}
             <div class="other-plus-profile">
               <div class="other-profile-img">
-                <img src="{% static 'image/profile.png' %}" alt="프로필 사진">
+                <img src="{{ comment.user.user_profile.url }}" alt="프로필 사진">
               </div>
               <div class="other-profile-id-box">
                 <div class="other-id">
@@ -279,7 +279,7 @@
             {% if not comment.review %}
             <div class="other-plus-profile">
               <div class="other-profile-img">
-                <img src="{% static 'image/profile.png' %}" alt="프로필 사진">
+                <img src="{{ comment.user.user_profile.url }}" alt="프로필 사진">
               </div>
               <div class="other-profile-id-box">
                 <div class="other-id">
