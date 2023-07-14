@@ -9,7 +9,7 @@
     />
     <title>ANDO : 게시글</title>
 
-    <link rel="stylesheet" href="../../static/css/post_mine.css" />
+    <link rel="stylesheet" href="../../static/css/post_look.css" />
 
     <script>
       window.addEventListener("DOMContentLoaded", function () {
@@ -66,15 +66,9 @@
                 </div>
               </div>
             </div>
-            <div class="rewrite-delete-write-time">
-              <div class="rewrite-delete">
-                <p onclick="goToRewritePage()">수정</p>
-                <p>삭제</p>
-              </div>
-              <div class="write-time">
-                <p>작성시간</p>
-                <p>July 11 / 2023 / 7:30 PM</p>
-              </div>
+            <div class="write-time">
+              <p>작성시간</p>
+              <p>July 11 / 2023 / 7:30 PM</p>
             </div>
           </div>
           <div class="sec-content">
@@ -128,13 +122,8 @@
               </div>
             </div>
             <div class="wrap">
-              <div class="id-content-accept-btn">
-                <div class="id-content">
-                  <p>내용</p>
-                </div>
-                <div class="accept-btn">
-                  <p>신청 현황</p>
-                </div>
+              <div class="id-content">
+                <p>내용</p>
               </div>
             </div>
             <div class="id_text_content">
@@ -151,7 +140,7 @@
               <p>안도 채팅</p>
             </div>
             <div class="comment-btn">
-              <p>모집완료</p>
+              <p>신청하기</p>
             </div>
           </div>
           <!-- 내 채팅 -->
@@ -223,7 +212,27 @@
         </form>
       </navigation>
     </div>
-    <script src="../../static/js/navigateTo/to-rewrite-page.js"></script>
+    <script>
+      const commentBtn = document.querySelector(".comment-btn");
+      const commentBtnText = commentBtn.querySelector("p");
+      let isClicked = false;
+
+      commentBtn.addEventListener("click", function () {
+        isClicked = !isClicked;
+
+        if (isClicked) {
+          commentBtn.style.border = "1px solid white";
+          commentBtnText.style.color = "white";
+          commentBtn.style.backgroundColor = "transparent";
+          commentBtnText.textContent = "신청취소";
+        } else {
+          commentBtn.style.border = "";
+          commentBtnText.style.color = "";
+          commentBtn.style.backgroundColor = "";
+          commentBtnText.textContent = "신청하기";
+        }
+      });
+    </script>
     <script src="../../static/js/navigateTo/go-back.js"></script>
     <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
   </body>

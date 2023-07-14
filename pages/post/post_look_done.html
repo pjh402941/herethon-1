@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../../static/css/post_look_done.css" />
 
     <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        const secComment = document.querySelector('.sec-comment');
+      window.addEventListener("DOMContentLoaded", function () {
+        const secComment = document.querySelector(".sec-comment");
 
         function setSecCommentHeight() {
           const windowHeight = window.innerHeight;
@@ -21,182 +21,306 @@
           const secCommentBottom = secComment.getBoundingClientRect().bottom;
           const secCommentHeight = windowHeight - secCommentTop;
 
-          secComment.style.height = Math.max(secCommentHeight, secCommentBottom - secCommentTop) + 'px';
+          secComment.style.height =
+            Math.max(secCommentHeight, secCommentBottom - secCommentTop) + "px";
         }
 
         // 초기 로드 시 sec-comment 높이 설정
         setSecCommentHeight();
 
         // 윈도우 리사이즈 시 sec-comment 높이 업데이트
-        window.addEventListener('resize', function() {
+        window.addEventListener("resize", function () {
           setSecCommentHeight();
         });
       });
     </script>
+    <style>
+      @media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  width: auto;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular";
+  background-color: white;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  color: #333333;
+}
+
+/* header */
+.hd {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hd img {
+  height: 17.5px;
+  position: absolute;
+  left: 20px;
+  filter: invert(20%);
+}
+
+/* section */
+.sec-total {
+    overflow-y: auto;
+    height: calc(100vh - 48px);
+    background-color: #f6f6f6;
+}
+
+/* sec */
+.sec {
+  text-align: left;
+}
+
+.sec-title p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.sec-comment {
+  margin-top: 13px;
+}
+
+.sec-comment p {
+  font-size: 11px;
+}
+
+.login-box {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+}
+
+.login-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 236px;
+  height: 48px;
+  background-color: #1c4747;
+  border: none;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn p {
+  font-size: 18px;
+  color: white;
+}
+
+    </style>
   </head>
   <body>
-    <header class="hd">
-      <img src="../../static/image/back.png" alt="뒤로가기" onclick="goBack()"/>
-      <p>게시글</p>
-    </header>
+    <div class="container">
+      <header class="hd">
+        <img
+          src="../../static/image/back.png"
+          alt="뒤로가기"
+          onclick="goBack()"
+          id="back"
+        />
+        <p>게시글</p>
+      </header>
 
-    <section class="sec-total">
-      <section class="sec">
-        <div class="sec-title">
-          <p>천호동에서 같이 멋사여대 택시 타고 갈 사자구함</p>
-        </div>
-        <div class="sec-profile-time">
-          <div class="sec-profile">
-            <div class="sec-profile-img">
-              <img src="../../static/image/profile.png" alt="프로필 이미지" />
-            </div>
-            <div class="sec-profile-content">
-              <div class="sec-profile-id">
-                <p>아이디</p>
-              </div>
-              <div class="sec-profile-school">
-                <p>멋사여자대학교</p>
-              </div>
-            </div>
+      <section class="sec-total">
+        <section class="sec">
+          <div class="sec-title">
+            <p>천호동에서 같이 멋사여대 택시 타고 갈 사자구함</p>
           </div>
-          <div class="write-time">
-            <p>작성시간</p>
-            <p>July 11 / 2023 / 7:30 PM</p>
-          </div>
-        </div>     
-        <div class="sec-content">
-          <div class="sec-content-box">
-            <div class="startpoint-box">
-              <div class="startpoint-address">
-                <p>서울시 용산구</p>
+          <div class="sec-profile-time">
+            <div class="sec-profile">
+              <div class="sec-profile-img">
+                <img src="../../static/image/profile.png" alt="프로필 이미지" />
               </div>
-              <div class="startpoint-address-2">상세주소</div>
-            </div>
-            <div class="arrow-box">
-              <img src="../../static/image/arrow.png" alt="화살표" />
-            </div>
-            <div class="endpoint-box">
-              <div class="endpoint-address">
-                <p>입력된 도착주소</p>
-              </div>
-              <div class="endpoint-address-2">상세주소 두 줄일 경우</div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="sec-content-other">
-          <div class="wrap-content-count">
-            <div class="wrap-content">
-              <div class="wrap">
-                <div class="id">
-                  <p>이동 수단</p>
+              <div class="sec-profile-content">
+                <div class="sec-profile-id">
+                  <p>아이디</p>
                 </div>
-                <div class="id_text">
-                  <p>택시</p>
-                </div>
-              </div>
-              <div class="wrap">
-                <div class="id">
-                  <p>출발 시각</p>
-                </div>
-                <div class="id_text">
-                  <p>텍스트 입력</p>
+                <div class="sec-profile-school">
+                  <p>멋사여자대학교</p>
                 </div>
               </div>
             </div>
-            <div class="wrap-count">
-              <div class="wrap-count-p">
-                <p>모집</p>
-              </div>
-              <div class="wrap-count-p">
-                <p>완료</p>
-              </div>
-            </div>
-          </div>       
-          <div class="wrap">
-            <div class="id-content">
-              <p>내용</p>
+            <div class="write-time">
+              <p>작성시간</p>
+              <p>July 11 / 2023 / 7:30 PM</p>
             </div>
           </div>
-          <div class="id_text_content">
-            <p>10분 안으로 오실 수 있는 분 구합니다 10분 안으로 오실 수 있는 분 구합니다</p>
+          <div class="sec-content">
+            <div class="sec-content-box">
+              <div class="startpoint-box">
+                <div class="startpoint-address">
+                  <p>서울시 용산구</p>
+                </div>
+                <div class="startpoint-address-2">상세주소</div>
+              </div>
+              <div class="arrow-box">
+                <img src="../../static/image/arrow.png" alt="화살표" />
+              </div>
+              <div class="endpoint-box">
+                <div class="endpoint-address">
+                  <p>입력된 도착주소</p>
+                </div>
+                <div class="endpoint-address-2">상세주소 두 줄일 경우</div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="sec-content-other">
+            <div class="wrap-content-count">
+              <div class="wrap-content">
+                <div class="wrap">
+                  <div class="id">
+                    <p>이동 수단</p>
+                  </div>
+                  <div class="id_text">
+                    <p>택시</p>
+                  </div>
+                </div>
+                <div class="wrap">
+                  <div class="id">
+                    <p>출발 시각</p>
+                  </div>
+                  <div class="id_text">
+                    <p>텍스트 입력</p>
+                  </div>
+                </div>
+              </div>
+              <div class="wrap-count">
+                <div class="wrap-count-p">
+                  <p>모집</p>
+                </div>
+                <div class="wrap-count-p">
+                  <p>완료</p>
+                </div>
+              </div>
+            </div>
+            <div class="wrap">
+              <div class="id-content">
+                <p>내용</p>
+              </div>
+            </div>
+            <div class="id_text_content">
+              <p>
+                10분 안으로 오실 수 있는 분 구합니다 10분 안으로 오실 수 있는 분
+                구합니다
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="sec-comment">
+          <div class="comment-title-box">
+            <div class="comment-title">
+              <p>안도의 후기</p>
+            </div>
+          </div>
+          <!-- 내 후기 -->
+          <div class="comment-content-box-mine">
+            <div class="comment-content-mine">
+              <p>지금 작성하는 사람의 후기입니다.</p>
+            </div>
+          </div>
+          <!-- 다른 사람이 작성한 후기 -->
+          <div class="other-plus-profile">
+            <div class="other-profile-img">
+              <img src="../../static/image/profile.png" alt="프로필 사진" />
+            </div>
+            <div class="other-profile-id-box">
+              <div class="other-id">
+                <p>닉네임</p>
+              </div>
+              <div class="comment-content-box-other">
+                <div class="comment-content-other">
+                  <p>다른 사람이 작성한 후기입니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 다른 사람이 작성한 후기 -->
+          <div class="other-plus-profile">
+            <div class="other-profile-img">
+              <img src="../../static/image/profile.png" alt="프로필 사진" />
+            </div>
+            <div class="other-profile-id-box">
+              <div class="other-id">
+                <p>닉네임</p>
+              </div>
+              <div class="comment-content-box-other">
+                <div class="comment-content-other">
+                  <p>후기후기</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 다른 사람이 보낸 후기 -->
+          <div class="other-plus-profile">
+            <div class="other-profile-img">
+              <img src="../../static/image/profile.png" alt="프로필 사진" />
+            </div>
+            <div class="other-profile-id-box">
+              <div class="other-id">
+                <p>닉네임</p>
+              </div>
+              <div class="comment-content-box-other">
+                <div class="comment-content-other">
+                  <p>후기후기</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
-      <section class="sec-comment">
-        <div class="comment-title-box">
-          <div class="comment-title">
-            <p>안도의 후기</p>
-          </div>
-        </div>
-        <!-- 내 후기 -->
-        <div class="comment-content-box-mine">
-          <div class="comment-content-mine">
-            <p>지금 작성하는 사람의 후기입니다.</p>
-          </div>
-        </div>
-        <!-- 다른 사람이 작성한 후기 -->
-        <div class="other-plus-profile">
-          <div class="other-profile-img">
-            <img src="../../static/image/profile.png" alt="프로필 사진">
-          </div>
-          <div class="other-profile-id-box">
-            <div class="other-id">
-              <p>닉네임</p>
-            </div>
-            <div class="comment-content-box-other">
-              <div class="comment-content-other">
-                <p>다른 사람이 작성한 후기입니다.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 다른 사람이 작성한 후기 -->
-        <div class="other-plus-profile">
-          <div class="other-profile-img">
-            <img src="../../static/image/profile.png" alt="프로필 사진">
-          </div>
-          <div class="other-profile-id-box">
-            <div class="other-id">
-              <p>닉네임</p>
-            </div>
-            <div class="comment-content-box-other">
-              <div class="comment-content-other">
-                <p>후기후기</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 다른 사람이 보낸 후기 -->
-        <div class="other-plus-profile">
-          <div class="other-profile-img">
-            <img src="../../static/image/profile.png" alt="프로필 사진">
-          </div>
-          <div class="other-profile-id-box">
-            <div class="other-id">
-              <p>닉네임</p>
-            </div>
-            <div class="comment-content-box-other">
-              <div class="comment-content-other">
-                <p>후기후기</p>
-              </div>
-            </div>
-          </div>
-        </div>    
-      </section>
-    </section>
-    <navigation class="nav">
-      <form method="POST" action="" name="chat" onsubmit="">
-        <div class="chat-input">
-          <textarea
+      <navigation class="nav">
+        <form method="POST" action="" name="chat" onsubmit="">
+          <div class="chat-input">
+            <textarea
               type="text"
               name="chat"
               placeholder="후기를 입력해주세요"
-          ></textarea>
-          <input type="submit" id="submit-btn" value="채팅"/>
-        </div>
-      </form>  
-    </navigation>
+            ></textarea>
+            <input type="submit" id="submit-btn" value="채팅" />
+          </div>
+        </form>
+      </navigation>
+    </div>
     <script src="../../static/js/navigateTo/go-back.js"></script>
     <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
   </body>
