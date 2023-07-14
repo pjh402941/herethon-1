@@ -65,17 +65,27 @@
   </head>
   <body>
     <div class="container">
+      <header class="hd">
+        <img
+          id="back"
+          src="../../static/image/back.png"
+          alt="back"
+          width="17.5px"
+          onclick="goBack()"
+        />
+      </header>
       <header class="logo-wrap">
         <img id="logo" src="../../static/image/logo.png" alt="logo" />
       </header>
+
       <div class="content">
         <div class="join-wrap">
           <form action="/" method="GET" class="form">
             <div class="join-box">
               <input
                 type="text"
-                name="user_id"
-                id="uid"
+                name="user_name"
+                id="uname"
                 required
                 placeholder="User Name"
                 maxlength="30"
@@ -88,6 +98,15 @@
                 required
                 placeholder="Nickname"
                 maxlength="8"
+              />
+              <br />
+              <input
+                type="text"
+                name="user_id"
+                id="uid"
+                required
+                placeholder="ID"
+                maxlength="30"
               />
               <br />
               <input
@@ -146,6 +165,7 @@
     </div>
     <script src="../../static/js/password-check.js"></script>
     <script src="../../static/js/join-preview-file.js"></script>
+    <script src="/static/js/navigateTo/go-back.js"></script>
     <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
   </body>
 </html>

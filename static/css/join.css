@@ -26,6 +26,19 @@ span {
   text-align: center;
 }
 
+header.hd {
+  height: 48px;
+  box-sizing: border-box;
+  padding-top: 14px;
+}
+img#back {
+  position: absolute;
+  left: 29.25px;
+}
+span#header-title {
+  font-size: 17px;
+  font-weight: bold;
+}
 header.logo-wrap {
   margin-top: 14px;
 }
@@ -71,6 +84,10 @@ input#uemail {
 }
 div#reupload-preview {
   margin-top: 10px;
+}
+div#reupload-preview img {
+  width: 200px;
+  height: auto;
 }
 button#bt-join {
   margin-top: 30px;
