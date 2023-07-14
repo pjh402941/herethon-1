@@ -1,0 +1,25 @@
+{% extends 'board/board_list.html' %}
+{% block content %}
+
+    {% if not boards %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+        {% for board in boards.all %}
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ board.title }}</h1>
+
+                    <p>{{ board.description }}<a href="{% url 'board_detail' board.id %}"> ...자세히 보기</a></p>
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

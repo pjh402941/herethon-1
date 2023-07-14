@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>모집글 추가하기</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="margin-bottom: 20px;">
+                            <a href="{% url 'board_list' %}"></a>
+                            <form class="form" method="POST">
+                            {% csrf_token %}
+                                <p class="p2">{{ form.title.label_tag }} {{ form.title }}</p>
+                                <p class="p2">
+                                    <input type="text" class="form-control" name="user"
+                                           value="{{ user.username }}" readonly>
+                                </p>
+                                <p class="p2">{{ form.description.label_tag }} {{ form.description }}</p>
+                                <p class="p2">{{ form.address.label_tag }} {{ form.address }}</p>
+                                <p class="p2">{{ form.startpoint.label_tag }} {{ form.startpoint }}</p>
+                                <p class="p2">{{ form.address_end.label_tag }} {{ form.address_end }}</p>
+                                <p class="p2">{{ form.endpoint.label_tag }} {{ form.endpoint }}</p>
+                                <p class="p2">{{ form.start_time.label_tag }} {{ form.start_time }}</p>
+                                <p class="p2">{{ form.count.label_tag }} {{ form.count }}</p>
+                                <p class="p2">{{ form.way.label_tag }} {{ form.way }}</p>
+
+                        <div style="display:flex; justify-content:flex-end">
+                            <button type="submit" class="request-button">등록</button>
+                        </div>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}
