@@ -25,4 +25,4 @@ class UserForm(UserCreationForm):
 class UserChangeForm(UserChangeForm) :
     class Meta :
         model = User
-        fields = ['user_profile', 'username', 'nickname', 'email', 'school_name', 'school_photo']
+        fields = ['user_profile', 'username', 'name', 'nickname', 'email', 'school_name', 'school_photo']

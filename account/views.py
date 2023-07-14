@@ -73,6 +73,19 @@ def my_page_update(request, pk) :
     else:
         form = UserChangeForm(instance=user)
     return render(request, "my_page_update.html", {'form': form})
+@login_required
+def admin_page (request) :
+    users = User.object.all()
+
+    return render(request, "admin_page.html", {"users": users})
+
+@login_required
+def admin_accept (request, pk) :
+    users = User.object.all()
+    user = get_object_or_404(User, id=pk)
+    user.is_active = True
+    user.save()
+    return render(request, "admin_page.html", {"users": users})
 
 def password_reset_request(request):
     if request.method == "POST":
