@@ -1,3 +1,9 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
 /* initial */
 @font-face {
   font-family: "Pretendard-Regular";
@@ -6,7 +12,12 @@
   font-weight: 400;
   font-style: normal;
 }
-
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
 img {
   width: auto;
   height: 100%;
@@ -15,7 +26,6 @@ img {
 body {
   margin: 0;
   font-family: "Pretendard-Regular";
-  background-color: #f6f6f6;
 }
 
 a:link,
@@ -30,7 +40,7 @@ p {
 
 /* header */
 .hd {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -60,8 +70,8 @@ p {
 /* section */
 .sec-total {
   overflow-y: auto;
-  padding-top: 48px;
   height: calc(100vh - 48px);
+  background-color: #f6f6f6;
 }
 
 .sec-total::-webkit-scrollbar {
@@ -122,6 +132,7 @@ p {
 
 .sec-profile-id p {
   font-size: 15px;
+  font-weight: bold;
 }
 
 .sec-profile-school p {

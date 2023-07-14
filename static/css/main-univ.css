@@ -22,11 +22,14 @@ body {
   margin: 0 auto;
   text-align: center;
   overflow: auto;
+  -ms-overflow-style: none;
 }
-
+.container::-webkit-scrollbar {
+  display: none;
+}
 header.hd {
   padding-bottom: 10px;
-  background-color: #72a7a8;
+  background-color: #b0cccc;
 }
 .top-header-wrap {
   padding-top: 16px;
@@ -36,8 +39,6 @@ img#back {
   left: 16px;
   top: 20.25px;
   color: white;
-  filter: invert(99%) sepia(4%) saturate(501%) hue-rotate(273deg)
-    brightness(114%) contrast(93%);
 }
 #logo {
   width: 80px;
@@ -47,9 +48,9 @@ img#back {
 }
 img#mypage {
   position: absolute;
-  top: 17px;
+  top: 20px;
   right: 5%;
-  width: 26px;
+  width: 20px;
 }
 
 .select-wrap {
@@ -67,7 +68,7 @@ img#mypage {
   position: relative;
   background-color: #f6f6f6;
   border-radius: 22.5px;
-  box-shadow: 0px 9px 5px -4px #567e7f;
+  box-shadow: 0px 9px 5px -4px #8ba1a1;
 }
 div#location-select {
   box-sizing: border-box;
@@ -99,13 +100,13 @@ div#univ-select {
   height: 35px;
   border-radius: 22.5px;
   margin-top: 17px;
-  border: 1px solid #f6f6f6;
+  border: 1px solid #1c4747;
 }
 img#search-img {
   position: absolute;
   left: 13px;
-  top: 10px;
-  width: 16px;
+  top: 11px;
+  width: 19px;
 }
 form.search-form {
   position: absolute;
@@ -117,9 +118,10 @@ input#search {
   margin-left: 24px;
   font-weight: bold;
   color: white;
+  background-color: #b0cccc;
 }
 input#search::placeholder {
-  color: #b0cccc;
+  color: #1c4747;
 }
 fieldset:focus,
 input:focus {
@@ -135,7 +137,7 @@ img#fieldreset {
 
 .border-radius-background {
   position: relative;
-  background-color: #72a7a8;
+  background-color: #b0cccc;
   height: 100px;
 }
 .board-list {
@@ -212,6 +214,7 @@ img#profile-img {
 span#nickname {
   font-size: 10px;
   display: block;
+  font-weight: bolder;
 }
 span#uschool {
   font-size: 7px;
@@ -302,4 +305,5 @@ div#time-box {
   border: 1px solid #72a7a8;
   padding: 3px 9px;
   border-radius: 11px;
+  font-weight: bold;
 }
