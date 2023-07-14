@@ -7,7 +7,7 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
     />
     <title>ANDO : 프로필</title>
-    <link rel="stylesheet" href="../../static/css/mypage.css" />
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
     <link rel="apple-touch-icon-precomposed" href="#" />
   </head>
   <body>
@@ -15,7 +15,7 @@
       <header class="hd">
         <img
           id="back"
-          src="../../static/image/back.png"
+          src="{% static 'image/back.png' %}"
           alt="back"
           width="17.5px"
           onclick="goBack()"
@@ -30,19 +30,18 @@
               <div class="profile-img-box">
                 <img
                   id="profile-img"
-                  src="../../static/image/profile.jpg"
+                  src="{% static 'image/profile.jpg' %}"
                   width="63px"
                 />
               </div>
               <div class="profile-whitebox">
-                <span id="nickname">어흥이</span>
+                <span id="nickname">{{ user.username }}</span>
                 <div class="verify-box">
-                  <span id="uschool">멋사여자대학교</span>
+                  <span id="uschool">{{ user.school_name }}</span>
                   <span id="school-verified">인증 완료</span>
                   <!-- 인증이 필요한 사용자 -->
                   <!-- <span id="school-unverified">인증 필요</span> -->
                 </div>
-                <span id="uemail">hungrylion@likelion.net</span>
               </div>
             </div>
           </section>
@@ -62,7 +61,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -95,7 +94,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -128,7 +127,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -161,7 +160,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -194,7 +193,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -227,7 +226,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -260,7 +259,7 @@
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
@@ -290,8 +289,8 @@
         </div>
       </div>
     </div>
-    <script src="../../static/js/content-height.js"></script>
-    <script src="../../static/js/navigateTo/go-back.js"></script>
-    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+    <script src="{% static 'js/content-height.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back-nonclick.js' %}"></script>
   </body>
 </html>
