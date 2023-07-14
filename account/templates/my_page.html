@@ -59,7 +59,8 @@
               <div class="board-list">
                 <!-- 여기서부터 whitebox 추가 -->
                 {% for list in user_posts %}
-                <div class="whitebox" onclick="goToMypostPage()">
+                <a href="{% url 'board_detail' pk=list.pk %}">
+                <div class="whitebox">
                   <div class="main-content-wrap">
                     <h1 id="content-title">{{ list.title }}</h1>
                     <div class="location-wrap">
@@ -91,6 +92,7 @@
                     </div>
                   </div>
                 </div>
+                  </a>
                 <table></table>
                 {% endfor %}
               </div>
