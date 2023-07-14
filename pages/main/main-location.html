@@ -25,7 +25,12 @@
             <div class="logo-wrap">
               <img id="logo" src="../../static/image/logo.png" alt="logo" />
             </div>
-            <img id="mypage" src="../../static/image/mypage.png" alt="mypage" />
+            <img
+              id="mypage"
+              src="../../static/image/mypage.png"
+              alt="mypage"
+              onclick="goToMyPage()"
+            />
           </div>
           <div class="select-wrap">
             <div class="select-box">
@@ -99,7 +104,7 @@
           <div class="content">
             <div class="board-list">
               <!-- 여기 main-whitebox.html 추가 -->
-              <div class="box-wrap">
+              <div class="box-wrap" onclick="goToPostPage()">
                 <div class="profile-img-box">
                   <img id="profile-img" src="../../static/image/profile.jpg" />
                 </div>
@@ -301,12 +306,19 @@
         </div>
       </div>
       <button id="write-button" type="button">
-        <img id="write-button-img" src="../../static/image/write.png" />
+        <img
+          id="write-button-img"
+          src="../../static/image/write.png"
+          onclick="goToWritePage()"
+        />
       </button>
     </div>
     <script src="../../static/js/content-height.js"></script>
     <script src="../../static/js/search-enterkey.js"></script>
+    <script src="../../static/js/navigateTo/to-mypage.js"></script>
+    <script src="../../static/js/navigateTo/to-post-page.js"></script>
     <script src="../../static/js/navigateTo/to-univ-page.js"></script>
+    <script src="../../static/js/navigateTo/to-write-page.js"></script>
     <script src="../../static/js/navigateTo/go-back.js"></script>
   </body>
 </html>

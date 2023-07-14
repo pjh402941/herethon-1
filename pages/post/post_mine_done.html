@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
     />
-    <title>게시글(모집완료_본인)</title>
+    <title>ANDO : 게시글</title>
 
     <link rel="stylesheet" href="../../static/css/post_mine_done.css" />
 
@@ -36,7 +36,7 @@
   </head>
   <body>
     <header class="hd">
-      <img src="../../static/image/back.png" alt="뒤로가기" />
+      <img src="../../static/image/back.png" alt="뒤로가기" onclick="goBack()"/>
       <p>게시글</p>
     </header>
 
@@ -61,7 +61,6 @@
           </div>
           <div class="rewrite-delete-write-time">
             <div class="rewrite-delete">
-              <p>수정</p>
               <p>삭제</p>
             </div>
             <div class="write-time">
@@ -203,5 +202,7 @@
         </div>
       </form>  
     </navigation>
+    <script src="../../static/js/navigateTo/go-back.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
   </body>
 </html>
