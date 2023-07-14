@@ -1,24 +1,78 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 로그인</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
 
-{% block content %}
-<form method="post" action="{% url 'account:login' %}">
-    {% csrf_token %}
-<!-------------------------------------- 입력에 에러가 났을 때 불러올 html-->
-    {% include "form_errors.html" %}
-<!-------------------------------------- 입력을 위한 공간-->
-    <div class="form-group">
-        <label for="username">ID</label>
-        <input type="text" class="form-control" name="username" id="username"
-               value="{{ form.username.value|default_if_none:'' }}">
-    </div>
-    <div class="form-group">
-        <label for="password">비밀번호</label>
-        <input type="password" class="form-control" name="password" id="password"
-               value="{{ form.password.value|default_if_none:'' }}">
-    </div>
-    <button type="submit" class="btn btn-primary">로그인</button>
-    <a href="{% url 'account:password_reset' %}">비밀번호를 까먹었는가</a>
+    <link rel="apple-touch-icon-precomposed" href="#" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="logo-wrap">
+        <img id="logo" src="{% static 'image/logo.png' %}" alt="logo" />
+      </header>
+      <div class="content">
+        <div class="login-wrap">
+          <div class="login-form-wrap">
+            <form
+              action="/"
+              action="{% url 'account:login' %}"
+              method="POST"
+              class="form"
+            >
+              {% csrf_token %} {% include "form_errors.html" %}
+              <div class="login-box">
+                <input
+                  type="text"
+                  name="username"
+                  id="uid"
+                  required
+                  placeholder="User Name"
+                  maxlength="30"
+                  value="{{ form.username.value|default_if_none:'' }}"
+                />
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id="upw"
+                  required
+                  placeholder="Password"
+                  maxlength="30"
+                  value="{{ form.password.value|default_if_none:'' }}"
+                />
+              </div>
+              <div id="forgot">
+                <a href="{% url 'account:password_reset' %}"
+                  >Forget Password ?</a
+                >
+              </div>
+              <button type="submit" id="bt-login">
+                <span id="login-span">Login</span>
+              </button>
 
-    <input type="hidden" name="next" value="{{ next }}"><!--로그인 성공 후 이전 페이지로 이동하게끔 하는 기능-->
-</form>
-{% endblock %}
+              <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+          </div>
+          <div class="bt-wrap">
+            <button id="join-bt">
+              <a id="join-span" href="{% url 'account:signup' %}">Join Us!</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/navigateTo/go-back-nonclick.js' %}"></script>
+  </body>
+</html>

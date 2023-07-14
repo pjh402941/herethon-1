@@ -1,61 +1,167 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 회원가입</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/join.css' %}" />
 
-{% block content %}
-<div class="container my-3">
-    <div class="row my-3">
-        <div class="col-4">
-            <span>계정생성</span>
+    <link rel="apple-touch-icon-precomposed" href="#" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+    <style>
+      input[type="file"] {
+        position: relative;
+      }
+      input[type="file"]::file-selector-button {
+        position: absolute;
+        right: 0px;
+        width: 20px;
+        color: transparent;
+      }
+
+      /* Faked label styles and icon */
+      input[type="file"]::before {
+        position: absolute;
+        pointer-events: none;
+        top: 13px;
+        right: 18px;
+        content: "Add";
+        color: #1c4747;
+        font-family: "Pretendard-Regular", sans-serif;
+        z-index: 2;
+      }
+
+      /* ------- From Step 1 ------- */
+
+      /* file upload button */
+      input[type="file"]::file-selector-button {
+        border-radius: 4px;
+        margin: 0;
+        width: 61px;
+        height: 22px;
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid #1c4747;
+        border-radius: 11px;
+        transition: background-color 200ms;
+      }
+
+      /* file upload button hover state */
+      input[type="file"]::file-selector-button:hover {
+        background-color: #f3f4f6;
+      }
+
+      /* file upload button active state */
+      input[type="file"]::file-selector-button:active {
+        background-color: #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="logo-wrap">
+        <img id="logo" src="{% static 'image/logo.png' %}" alt="logo" />
+      </header>
+      <div class="content">
+        <div class="join-wrap">
+          <form
+            action="/"
+            method="GET"
+            class="form"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %} {% include "form_errors.html" %}
+            <div class="join-box">
+              <input
+                type="text"
+                name="name"
+                id="uid"
+                required
+                placeholder="User Name"
+                maxlength="30"
+                value="{{ form.name.value|default_if_none:'' }}"
+              />
+              <br />
+              <input
+                type="text"
+                name="nick_name"
+                id="nickname"
+                required
+                placeholder="Nickname"
+                maxlength="8"
+                value="{{ form.nickname.value|default_if_none:'' }}"
+              />
+              <br />
+              <input
+                type="password"
+                name="password1"
+                id="upw1"
+                required
+                placeholder="Password"
+                maxlength="30"
+                onchange="isSame()"
+                value="{{ form.password1.value|default_if_none:'' }}"
+              />
+              <br />
+              <input
+                type="password"
+                name="password2"
+                id="upw2"
+                required
+                placeholder="Password Check"
+                maxlength="30"
+                onchange="isSame()"
+                value="{{ form.password2.value|default_if_none:'' }}"
+              /><br />
+              <div id="same"></div>
+
+              <br />
+              <input
+                type="email"
+                name="email"
+                id="uemail"
+                required
+                placeholder="E-mail"
+                value="{{ form.email.value|default_if_none:'' }}"
+              />
+              <br />
+              <input
+                type="text"
+                name="school_name"
+                id="uschool"
+                required
+                placeholder="School name"
+                value="{{ form.school_photo.value|default_if_none:'' }}"
+              />
+              <br />
+              <span id="file-title">School Photo</span>
+              <input
+                type="file"
+                name="school_photo"
+                onchange="setImageFn(this, 'reupload', 'reupload-preview')"
+                id="reupload"
+                value="{{ form.school_photo.value|default_if_none:'' }}"
+              />
+              <div id="reupload-preview"></div>
+            </div>
+
+            <button id="bt-join" type="submit" value="submit">
+              <span>Join</span>
+            </button>
+          </form>
         </div>
+      </div>
     </div>
-
-    <form method="post" class="post-form" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% include "form_errors.html" %}
-        <div class="form-group">
-            <label for="name">사용자 이름</label>
-            <input type="text" class="form-control" name="name" id="name"
-                   value="{{ form.name.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="nickname">사용자 닉네임</label>
-            <input type="text" class="form-control" name="nickname" id="nickname"
-                   value="{{ form.nickname.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="email">사용자 이메일</label>
-            <input type="email" class="form-control" name="email" id="email"
-                   value="{{ form.email.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="school_name">학교 이름</label>
-            <input type="text" class="form-control" name="school_name" id="school_name"
-                   value="{{ form.school_name.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="school_photo">학생증 사진</label>
-            <input type="file" class="form-control" name="school_photo" id="school_photo"
-                   value="{{ form.school_photo.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="username">사용자 아이디</label>
-            <input type="text" class="form-control" name="username" id="username"
-                   value="{{ form.username.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="password1">비밀번호</label>
-            <input type="password" class="form-control" name="password1" id="password1"
-                   value="{{ form.password1.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <label for="password2">비밀번호 확인</label>
-            <input type="password" class="form-control" name="password2" id="password2"
-                   value="{{ form.password2.value|default_if_none:'' }}">
-        </div>
-        <div class="form-group">
-            <input type="hidden" class="form-control" name="user_profile"
-                   value="{{ form.user_profile.value|default_if_none:'profile/user.png' }}">
-        </div>
-        <button type="submit" class="btn btn-primary">가입하기</button>
-    </form>
-</div>
-{% endblock %}
+    <script src="../../static/js/password-check.js"></script>
+    <script src="../../static/js/join-preview-file.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+  </body>
+</html>

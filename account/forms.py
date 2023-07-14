@@ -26,3 +26,8 @@ class UserChangeForm(UserChangeForm) :
     class Meta :
         model = User
         fields = ['user_profile', 'username', 'nickname', 'email', 'school_name', 'school_photo']
+
+class PasswordResetForm(forms.Form):
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'placeholder': 'E-mail'})
+    )

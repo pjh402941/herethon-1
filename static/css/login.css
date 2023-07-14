@@ -12,6 +12,10 @@
   font-style: normal;
   color: #333333;
 }
+a:link,
+a:visited {
+  text-decoration: none;
+}
 body {
   margin: 0;
   font-family: "Pretendard-Regular";
