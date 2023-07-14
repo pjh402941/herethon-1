@@ -12,7 +12,8 @@
   font-style: normal;
   color: #333333;
 }
-body {
+body,
+input {
   margin: 0;
   font-family: "Pretendard-Regular";
 }
@@ -100,6 +101,7 @@ span#profile-select {
 img.verified {
   position: absolute;
   right: 0px;
+  top: 8px;
 }
 #new-input {
   box-sizing: border-box;
@@ -115,10 +117,24 @@ img.verified {
   position: relative;
   margin-top: 21px;
 }
+#new-input2 {
+  border: none;
+  font-size: 13px;
+  color: #333333;
+  font-weight: bold;
+  margin-top: -1px;
+}
+#new-input2:focus {
+  outline: none;
+  border: none;
+}
 #new-input:focus {
   outline: none;
   border: none;
   border-bottom: 1px solid #1c4747;
+}
+.unverified {
+  display: none;
 }
 /* 인증되지 않은 사용자 */
 /* img.verified {
@@ -128,6 +144,7 @@ img.verified {
   position: absolute;
   right: 0px;
   color: red;
+  top: 12px;
 } */
 #file-title {
   display: block;

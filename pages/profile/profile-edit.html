@@ -117,27 +117,19 @@
             <div id="file-hide"></div>
           </div>
           <div class="info-box">
-            <div id="uid" class="info">
-              김사자
-              <img
-                class="verified"
-                src="../../static/image/check.png"
-                width="20px"
-              />
-              <!-- 인증되지 않은 사용자 -->
-              <!-- <span class="unverified">인증이 필요합니다</span> -->
-            </div>
+            <div id="uid" class="info">김사자</div>
             <div id="nickname" class="info">어흥이</div>
+            <div id="uid" class="info">아이디</div>
             <div id="uemail" class="info">hungrylion@likelion.net</div>
-            <div id="uschool" class="info">
-              멋사여자대학교
+            <div id="school" class="info">
+              <div id="uschool">멋사여자대학교</div>
               <img
                 class="verified"
                 src="../../static/image/check.png"
                 width="20px"
               />
               <!-- 인증되지 않은 사용자 -->
-              <!-- <span class="unverified">인증이 필요합니다</span> -->
+              <span class="unverified">인증이 필요합니다</span>
             </div>
 
             <span id="file-title">School Photo</span>
@@ -165,5 +157,43 @@
     <script src="../../static/js/navigateTo/go-back.js"></script>
     <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
     <script src="../../static/js/navigateTo/to-mypage.js"></script>
+    <script>
+      uschool.addEventListener("click", function () {
+        // div 내용을 가져옴
+        var divContent = this.innerHTML;
+
+        // input 요소를 생성하고 div를 대체함
+        var input = document.createElement("input");
+        input.value = divContent;
+        input.id = "new-input2";
+
+        // 해제할 CSS 프로퍼티 목록
+        var cssProperties = [
+          "box-sizing",
+          "padding",
+          "border",
+          "border-bottom",
+          "font-size",
+          "color",
+          "width",
+          "margin",
+          "text-align",
+          "font-weight",
+          "position",
+        ];
+
+        // div에 적용된 CSS를 해제
+        var divElement = this; // div 엘리먼트 참조를 변수에 저장
+        cssProperties.forEach(function (property) {
+          divElement.style.removeProperty(property);
+        });
+
+        // div를 input으로 대체
+        this.parentNode.replaceChild(input, this);
+
+        // input에 포커스를 설정
+        input.focus();
+      });
+    </script>
   </body>
 </html>
