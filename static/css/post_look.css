@@ -286,6 +286,10 @@ p {
 }
 
 /* sec-comment */
+.messages {
+  display: none;
+}
+
 .sec-comment {
   background-color: #1c4747;
   border: none;
