@@ -1,0 +1,154 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  color: #333333;
+}
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.content {
+  overflow: auto;
+}
+
+header.hd {
+  height: 48px;
+  border-bottom: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  padding-top: 14px;
+}
+img#back {
+  position: absolute;
+  left: 29.25px;
+}
+span#header-title {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.profile-box-wrap {
+  width: 300px;
+  height: 162px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.profile-img-box {
+  width: 71px;
+  height: 71px;
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow: 0px 2px 2px 2px #f6f6f6;
+  margin: auto;
+  margin-top: 24px;
+}
+img.profile-img {
+  width: 63px;
+  border-radius: 50px;
+  padding-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+span#profile-select {
+  display: block;
+  box-sizing: border-box;
+  padding-top: 4px;
+  width: 61px;
+  height: 22px;
+  border: 1px solid #1c4747;
+  border-radius: 11px;
+  font-size: 8px;
+  color: #1c4747;
+  font-weight: 550;
+  margin: auto;
+  margin-top: 18px;
+}
+
+.info,
+#reupload {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 1px solid #1c4747;
+  font-size: 13px;
+  color: #333333;
+  width: 303.5px;
+  margin: auto;
+  text-align: left;
+  font-weight: bold;
+  position: relative;
+}
+.info:not(:first-of-type) {
+  margin-top: 21px;
+}
+img.verified {
+  position: absolute;
+  right: 0px;
+}
+#new-input {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 1px solid #1c4747;
+  font-size: 13px;
+  color: #333333;
+  width: 303.5px;
+  margin: auto;
+  text-align: left;
+  font-weight: bold;
+  position: relative;
+  margin-top: 21px;
+}
+#new-input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #1c4747;
+}
+/* 인증되지 않은 사용자 */
+/* img.verified {
+  display: none;
+}
+.unverified {
+  position: absolute;
+  right: 0px;
+  color: red;
+} */
+#file-title {
+  display: block;
+  font-size: 8px;
+  text-align: left;
+  width: 294.5px;
+  margin: auto;
+  margin-top: 20px;
+  color: #333333;
+}
+div#reupload-preview {
+  margin-top: 10px;
+}
+button#bt-save {
+  margin-top: 58px;
+  box-sizing: content-box;
+  width: 236px;
+  height: 48px;
+  border: none;
+  background-color: #1c4747;
+  font-size: 18px;
+  color: white;
+  border-radius: 50px;
+}
