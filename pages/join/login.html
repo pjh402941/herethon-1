@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 로그인</title>
+    <link rel="stylesheet" href="../../static/css/login.css" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="logo-wrap">
+        <img id="logo" src="../../static/image/logo.png" alt="logo" />
+      </header>
+      <div class="content">
+        <div class="login-wrap">
+          <div class="login-form-wrap">
+            <form action="/" method="POST" class="form">
+              <div class="login-box">
+                <input
+                  type="text"
+                  name="user_id"
+                  id="uid"
+                  required
+                  placeholder="User Name"
+                  maxlength="30"
+                />
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id="upw"
+                  required
+                  placeholder="Password"
+                  maxlength="30"
+                />
+              </div>
+              <div id="forgot">Forget Password ?</div>
+              <button type="submit" id="bt-login" onclick="goToMainPage()">
+                <span id="login-span">Login</span>
+              </button>
+            </form>
+          </div>
+          <div class="bt-wrap">
+            <button id="join-bt">
+              <span id="join-span" onclick="goToJoinPage()">Join Us!</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../static/js/navigateTo/to-join-page.js"></script>
+    <script src="../../static/js/navigateTo/to-main-page.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  color: #333333;
+}
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+span {
+  font-family: "Pretendard-Regular";
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header.logo-wrap {
+  margin-top: 14px;
+}
+#logo {
+  width: 102px;
+}
+
+.join-wrap {
+  margin-top: 14.58px;
+}
+input {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 1px solid #1c4747;
+  font-size: 13px;
+  color: #333333;
+  width: 303.5px;
+}
+input::placeholder {
+  font-weight: lighter;
+}
+input:not(:last-of-type) {
+  font-weight: bold;
+}
+input:not(:first-of-type) {
+  margin-top: 21px;
+}
+input#reupload {
+  margin-top: 0px;
+}
+input#uemail {
+  margin-top: 0px;
+}
+#file-title {
+  display: block;
+  font-size: 8px;
+  text-align: left;
+  width: 294.5px;
+  margin: auto;
+  margin-top: 20px;
+  color: #333333;
+}
+div#reupload-preview {
+  margin-top: 10px;
+}
+button#bt-join {
+  margin-top: 30px;
+  width: 236px;
+  height: 48px;
+  border: none;
+  background-color: #1c4747;
+  font-size: 18px;
+  color: white;
+  border-radius: 50px;
+}
+
+div#same {
+  text-align: left;
+  color: red;
+  width: 303.5px;
+  margin: 0 auto;
+  font-size: 13px;
+}
