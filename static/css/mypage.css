@@ -21,8 +21,6 @@ body {
   height: 100%;
   margin: 0 auto;
   text-align: center;
-}
-.content {
   overflow: auto;
   background-color: #f6f6f6;
 }
@@ -32,6 +30,7 @@ header.hd {
   border-bottom: 1px solid #b3b3b3;
   box-sizing: border-box;
   padding-top: 14px;
+  background-color: white;
 }
 img#back {
   position: absolute;
