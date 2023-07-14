@@ -67,9 +67,19 @@
   </head>
   <body>
     <div class="container">
+      <header class="hd">
+        <img
+          id="back"
+          src="{% static 'image/back.png' %}"
+          alt="back"
+          width="17.5px"
+          onclick="goBack()"
+        />
+      </header>
       <header class="logo-wrap">
         <img id="logo" src="{% static 'image/logo.png' %}" alt="logo" />
       </header>
+
       <div class="content">
         <div class="join-wrap">
           <form
@@ -83,7 +93,7 @@
               <input
                 type="text"
                 name="name"
-                id="uid"
+                id="uname"
                 required
                 placeholder="User Name"
                 maxlength="30"
@@ -98,6 +108,15 @@
                 placeholder="Nickname"
                 maxlength="8"
                 value="{{ form.nickname.value|default_if_none:'' }}"
+              />
+              <br />
+              <input
+                type="text"
+                name="user_id"
+                id="uid"
+                required
+                placeholder="ID"
+                maxlength="30"
               />
               <br />
               <input
@@ -160,8 +179,9 @@
         </div>
       </div>
     </div>
-    <script src="../../static/js/password-check.js"></script>
-    <script src="../../static/js/join-preview-file.js"></script>
-    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+    <script src="{% static 'js/password-check.js' %}"></script>
+    <script src="{% static 'js/join-preview-file.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back-nonclick.js' %}"></script>
   </body>
 </html>

@@ -30,6 +30,11 @@ span {
   text-align: center;
 }
 
+header.hd {
+  height: 48px;
+  box-sizing: border-box;
+  padding-top: 14px;
+}
 header.logo-wrap {
   margin-top: 14px;
 }

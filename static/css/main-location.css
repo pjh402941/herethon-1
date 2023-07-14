@@ -30,7 +30,7 @@ header.hd {
   background-color: #72a7a8;
 }
 .top-header-wrap {
-  padding-top: 10px;
+  padding-top: 16px;
 }
 img#back {
   position: absolute;
@@ -41,7 +41,7 @@ img#back {
     brightness(114%) contrast(93%);
 }
 #logo {
-  width: 102px;
+  width: 80px;
 }
 .logo-wrap {
   position: relative;

@@ -22,10 +22,6 @@ body {
   margin: 0 auto;
   text-align: center;
   overflow: auto;
-    -ms-overflow-style: none;
- .box::-webkit-scrollbar{
-   display:none;
- }
   background-color: #f6f6f6;
 }
 header.hd {
@@ -55,14 +51,15 @@ div#accept-sec-hd {
   font-size: 15px;
 }
 .accept-whitebox {
-  margin: 0 auto;
-  margin-top: 20px;
-  position: relative;
-  width: 90%;
-  height: 154px;
-  box-shadow: 0px 2px 2px 2px #f6f6f6;
-  border-radius: 8px;
-  background-color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    width: 90%;
+    width: 300px;
+    height: 154px;
+    box-shadow: 0px 2px 2px 2px #f6f6f6;
+    border-radius: 8px;
+    background-color: white;
 }
 .accept-wrap {
   box-sizing: border-box;
@@ -70,6 +67,10 @@ div#accept-sec-hd {
   height: 100%;
   padding: 17px 13px;
   overflow: auto;
+  -ms-overflow-style: none;
+}
+.accept-wrap::-webkit-scrollbar {
+  display: none;
 }
 .accept-box {
   height: 20px;
@@ -80,8 +81,20 @@ div#accept-num,
 #accept-profile-img,
 #accept-nickname,
 #accept-uschool,
-#accept-cancel {
+#accept-cancel,
+img#no-one,
+div#accept-empty {
   position: absolute;
+}
+img#no-one {
+    top: 60px;
+    left: 141px;
+}
+div#accept-empty {
+    top: 83px;
+    left: 135px;
+    font-size: 9px;
+    color: #B3B3B3;
 }
 div#accept-num {
   top: 2px;
@@ -96,17 +109,14 @@ div#accept-profile-wrap {
   background-color: white;
   z-index: 1;
   box-shadow: 0px 2px 2px 2px #f6f6f6;
-  /* margin: auto; */
   margin-left: 30px;
 }
 img#accept-profile {
   box-sizing: border-box;
   height: 7.27px;
   border-radius: 50px;
-  /* padding-top: 0px; */
   position: relative;
   z-index: 1;
-  /* border: 1px solid; */
 }
 div#accept-nickname {
   left: 70px;
@@ -143,5 +153,56 @@ div#preaccept-sec-hd {
 }
 .preaccept-wrap {
   height: 100%;
-  padding: 20px 10px 0;
+  padding: 20px 17px 0;
+}
+.preaccept-box {
+  height: 44px;
+  margin-bottom: 22px;
+  position: relative;
+}
+#preaccept-profile,
+#preaccept-nickname,
+#preaccept-uschool,
+#accept {
+  position: absolute;
+}
+div#preaccept-profile-wrap {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0px 2px 2px 2px #f6f6f6;
+}
+img#preaccept-profile {
+  box-sizing: border-box;
+  height: 16px;
+  border-radius: 50px;
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+div#preaccept-nickname {
+  top: 14px;
+  left: 60px;
+  font-size: 15px;
+  font-weight: bold;
+}
+div#preaccept-uschool {
+  left: 122px;
+  top: 17px;
+  font-size: 10px;
+}
+div#accept {
+  right: 16px;
+  top: 13px;
+  width: 43px;
+  height: 25px;
+  background-color: #285f60;
+  color: #f6f6f6;
+  box-sizing: border-box;
+  padding-top: 3px;
+  border-radius: 4px;
 }

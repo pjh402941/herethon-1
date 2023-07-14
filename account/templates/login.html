@@ -19,6 +19,8 @@
   </head>
   <body>
     <div class="container">
+      <header class="hd">
+      </header>
       <header class="logo-wrap">
         <img id="logo" src="{% static 'image/logo.png' %}" alt="logo" />
       </header>
@@ -38,7 +40,7 @@
                   name="username"
                   id="uid"
                   required
-                  placeholder="User Name"
+                  placeholder="ID"
                   maxlength="30"
                   value="{{ form.username.value|default_if_none:'' }}"
                 />
