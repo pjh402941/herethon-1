@@ -15,5 +15,7 @@ urlpatterns = [
     path('profile_page/<int:pk>', views.profile_page, name="profile_page"),
     path('my_page/update/<int:pk>', views.my_page_update, name="my_page_update"),
     path('password_reset/', views.password_reset_request, name="password_reset"),
+    path('admin_page/', views.admin_page, name="admin_page"),
+    path('admin_page/accept/<int:pk>', views.admin_accept, name="admin_accept"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
