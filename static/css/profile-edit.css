@@ -158,6 +158,10 @@ img.verified {
 div#reupload-preview {
   margin-top: 10px;
 }
+div#reupload-preview img {
+  width: 200px;
+  height: auto;
+}
 button#bt-save {
   margin-top: 58px;
   box-sizing: content-box;
