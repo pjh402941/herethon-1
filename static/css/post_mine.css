@@ -1,3 +1,9 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
 /* initial */
 @font-face {
   font-family: "Pretendard-Regular";
@@ -5,6 +11,11 @@
     format("woff");
   font-weight: 400;
   font-style: normal;
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
 }
 
 img {
@@ -15,7 +26,6 @@ img {
 body {
   margin: 0;
   font-family: "Pretendard-Regular";
-  background-color: #f6f6f6;
 }
 
 a:link,
@@ -30,7 +40,7 @@ p {
 
 /* header */
 .hd {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -62,8 +72,8 @@ p {
 /* section */
 .sec-total {
   overflow-y: auto;
-  padding-top: 48px;
   height: calc(100vh - 48px - 41px);
+  background-color: #f6f6f6;
 }
 
 .sec-total::-webkit-scrollbar {
@@ -90,7 +100,7 @@ p {
 .sec-profile-time {
   display: flex;
   justify-content: space-between;
-  margin: 12px 16px -10px 16px;
+  margin: 9px 16px -10px 22px;
   align-items: center;
 }
 
@@ -121,6 +131,7 @@ p {
 
 .sec-profile-id p {
   font-size: 15px;
+  font-weight: bold;
 }
 
 .sec-profile-school p {
@@ -466,6 +477,7 @@ p {
   justify-content: center;
   align-items: center;
   background-color: #f6f6f6;
+  left: 0px;
 }
 
 .chat-input {
