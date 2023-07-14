@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>profile-whitebox</title>
+    <style>
+      @media (hover: hover) {
+        html {
+          width: 375px;
+          margin: 0 auto;
+        }
+      }
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+        color: #333333;
+      }
+      body {
+        margin: 0;
+        font-family: "Pretendard-Regular";
+      }
+      .whitebox {
+        display: flex;
+        flex-direction: row;
+        margin: 14px 10%;
+        position: relative;
+        box-sizing: border-box;
+        width: 80%;
+        height: 93px;
+        background-color: #ffffff;
+        border-radius: 9px;
+        box-shadow: 0px 2px 2px 2px #dadada;
+      }
+
+      .main-content-wrap {
+        box-sizing: content-box;
+        width: 60%;
+        margin: 0px;
+        margin-top: 11px;
+        padding-left: 10%;
+      }
+      h1#content-title {
+        font-size: 13px;
+        margin: 0px;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .location-wrap {
+        position: relative;
+        width: 175px;
+        height: 19px;
+        margin: 0px;
+        margin-top: 9px;
+      }
+      .departure-box,
+      .arrival-box {
+        position: absolute;
+        box-sizing: border-box;
+        width: 56px;
+        height: 19px;
+        background-color: #285f60;
+        color: #f6f6f6;
+        font-size: 9px;
+        padding-top: 4px;
+        border-radius: 9.5px;
+        text-align: center;
+      }
+      img#arrow {
+        position: absolute;
+        width: 22px;
+        top: 6px;
+        left: 74px;
+      }
+      .arrival-box {
+        top: 0px;
+        left: 114px;
+        background-color: #72a7a8;
+      }
+      .time-wrap {
+        position: relative;
+        width: 175px;
+        height: 20px;
+        margin: 0px;
+        margin-top: 11px;
+      }
+      span#time-label {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        font-size: 7px;
+        margin-top: 2px;
+      }
+      div#time-box {
+        position: absolute;
+        left: 47px;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .side-content-wrap {
+        box-sizing: content-box;
+        width: 30%;
+        margin-top: 9px;
+      }
+      .recruitment-box {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .transportation-box {
+        position: absolute;
+        box-sizing: border-box;
+        width: 46px;
+        right: 7%;
+        margin-top: 37px;
+        color: #285f60;
+        font-size: 9px;
+        border: 1px solid #72a7a8;
+        padding: 3px 9px;
+        border-radius: 11px;
+      }
+      span#transportation {
+        margin-left: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whitebox">
+      <div class="main-content-wrap">
+        <h1 id="content-title">동을 포함한 상세주소를 적</h1>
+        <div class="location-wrap">
+          <div class="departure-box">
+            <span id="departure">용산구</span>
+          </div>
+          <img id="arrow" src="../../static/image/arrow.png" width="22px" />
+          <div class="arrival-box">
+            <span id="arrival">ㅇㅇ구</span>
+          </div>
+        </div>
+        <div class="time-wrap">
+          <span id="time-label">출발 시각</span>
+          <div id="time-box"><span id="time">00:00</span></div>
+        </div>
+      </div>
+      <div class="side-content-wrap">
+        <div class="recruitment-box">
+          <span id="current-recruitment">1</span>
+          <span id="slash">/</span>
+          <span id="total-recruitment">4</span>
+        </div>
+        <div class="transportation-box">
+          <span id="transportation">택시</span>
+        </div>
+      </div>
+    </div>
+    <table></table>
+  </body>
+</html>

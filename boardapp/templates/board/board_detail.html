@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="container">
+        <h1>Board 상세보기</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">제목: {{ board.title }}</h5>
+                            <p class="card-text">내용: {{ board.description }}</p>
+                            <p class="card-text">작성자 : {{ board.user.username }}</p>
+                            <p class="card-text">출발구: {{ board.address }}</p>
+                            <p class="card-text">출발지 상세주소: {{ board.startpoint }}</p>
+                            <p class="card-text">도착구: {{ board.address_end }}</p>
+                            <p class="card-text">도착지 상세주소: {{ board.endpoint }}</p>
+                            <p class="card-text">출발 시각: {{ board.start_time }}</p>
+                            <p class="card-text">이동수단: {{ board.way }}</p>
+                            <p class="card-text"> 총 {{ board.count }} 명 모집</p>
+                            <p class="card-text">{{ board.countcheck }} 명 참석 중 </p>
+                            <p class="card-text">작성시간: {{ board.created_at }}</p>
+
+
+
+                            {% if board.user != request.user %}
+                             <a href="{% url 'board_done' pk=board.pk %}" class="btn btn-danger">신청하기</a>
+                            {% if messages %}
+
+
+                                <ul class="messages">
+                                {% for message in messages %}
+                               {% if message.tags %} {% endif %}{{ message }}
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            {% endif %}
+                            <a href="{% url 'board_list' %}" class="btn btn-primary">목록으로</a>
+                            {% if board.user == request.user %}
+                            <a href="{% url 'board_edit' pk=board.pk %}" class="btn btn-primary">수정하기</a>
+                            <a href="{% url 'board_delete' pk=board.pk %}" class="btn btn-primary">삭제하기</a>
+                            {% endif %}
+
+                            <br><br>
+                            <form method="POST" action="{% url 'comment_post' pk=board.pk %}"  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <p>comment:  <input type="text" name="content">
+
+                                        {% csrf_token %}
+
+                                        <input type="submit" value="submit">
+                                    </form>
+                                </p>
+
+                                <p>댓글 목록</p>
+
+                                {% for comment in board.comment_set.all %}
+                                {% if comment.board.complete %}
+                                {% if comment.review %}
+                                 <p>리뷰입니다</p>
+                                 <p>{{ comment.content }} - {{ comment.created_at }}</p>
+                                 <p>{{ comment.user.username }}</p>
+                                     {% if comment.user == request.user %}
+                                     <a href="{% url 'comment_delete' pk=board.pk comment_pk=comment.pk %}" class="btn btn-primary">삭제</a>
+                                     <a href="{% url 'comment_edit' pk=board.pk comment_pk=comment.pk %}" class="btn btn-primary">수정</a>
+                                     {% endif %}
+                                    <hr>
+                                {% endif %}
+                                {% else %}
+                                 {% if not comment.review %}
+                                 <p>일반댓글 입니다</p>
+                                 <p>{{ comment.content }} - {{ comment.created_at }}</p>
+                                 <p>{{ comment.user.username }}</p>
+                                 {% if comment.user == request.user %}
+                                 <a href="{% url 'comment_delete' pk=board.pk comment_pk=comment.pk %}" class="btn btn-primary">삭제</a>
+                                 <a href="{% url 'comment_edit' pk=board.pk comment_pk=comment.pk %}" class="btn btn-primary">수정</a>
+                                 {% endif %}
+                                 <hr>
+                                {% endif %}
+                                 {% endif %}
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+{% endblock %}

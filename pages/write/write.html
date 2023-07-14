@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 게시글 작성</title>
+
+    <link rel="stylesheet" href="../../static/css/write.css" />
+  </head>
+  <body>
+    <header class="hd">
+      <img
+        src="../../static/image/back.png"
+        alt="뒤로가기"
+        onclick="goBack()"
+      />
+      <p>게시글 작성</p>
+    </header>
+
+    <section class="sec-total">
+      <section class="sec">
+        <form method="POST" action="" name="board" onsubmit="">
+          <div class="sec-title">
+            <input
+              id="title_text"
+              type="text"
+              name="title"
+              value=""
+              placeholder="게시글의 제목을 입력해주세요."
+            />
+          </div>
+          <div class="sec-profile">
+            <div class="sec-profile-img">
+              <img src="../../static/image/profile.png" alt="프로필 이미지" />
+            </div>
+            <div class="sec-profile-content">
+              <div class="sec-profile-id">
+                <p>아이디</p>
+              </div>
+              <div class="sec-profile-school">
+                <p>멋사여자대학교</p>
+              </div>
+            </div>
+          </div>
+          <div class="sec-form">
+            <div class="wrap">
+              <div class="id">
+                <p>출발 장소</p>
+              </div>
+              <div class="id_textBox">
+                <select name="startpoint" class="select_style">
+                  <option selected value="" disabled>선택</option>
+                  <option value="11">강남구</option>
+                  <option value="12">강동구</option>
+                  <option value="13">강북구</option>
+                  <option value="14">강서구</option>
+                  <option value="15">관악구</option>
+                  <option value="16">광진구</option>
+                  <option value="17">구로구</option>
+                  <option value="18">금천구</option>
+                  <option value="19">노원구</option>
+                  <option value="20">도봉구</option>
+                  <option value="21">동대문구</option>
+                  <option value="22">동작구</option>
+                  <option value="23">마포구</option>
+                  <option value="24">서대문구</option>
+                  <option value="25">서초구</option>
+                  <option value="26">성동구</option>
+                  <option value="27">성북구</option>
+                  <option value="28">송파구</option>
+                  <option value="29">양천구</option>
+                  <option value="30">영등포구</option>
+                  <option value="31">용산구</option>
+                  <option value="32">은평구</option>
+                  <option value="33">종로구</option>
+                  <option value="34">중구</option>
+                  <option value="35">중랑구</option>
+                </select>
+                <input
+                  id="startpoint_text"
+                  type="text"
+                  name="startpoint_add"
+                  value=""
+                  placeholder="상세주소 입력"
+                />
+              </div>
+            </div>
+            <div class="wrap">
+              <div class="id">
+                <p>도착 장소</p>
+              </div>
+              <div class="id_textBox">
+                <select name="endpoint" class="select_style">
+                  <option selected value="" disabled>선택</option>
+                  <option value="11">강남구</option>
+                  <option value="12">강동구</option>
+                  <option value="13">강북구</option>
+                  <option value="14">강서구</option>
+                  <option value="15">관악구</option>
+                  <option value="16">광진구</option>
+                  <option value="17">구로구</option>
+                  <option value="18">금천구</option>
+                  <option value="19">노원구</option>
+                  <option value="20">도봉구</option>
+                  <option value="21">동대문구</option>
+                  <option value="22">동작구</option>
+                  <option value="23">마포구</option>
+                  <option value="24">서대문구</option>
+                  <option value="25">서초구</option>
+                  <option value="26">성동구</option>
+                  <option value="27">성북구</option>
+                  <option value="28">송파구</option>
+                  <option value="29">양천구</option>
+                  <option value="30">영등포구</option>
+                  <option value="31">용산구</option>
+                  <option value="32">은평구</option>
+                  <option value="33">종로구</option>
+                  <option value="34">중구</option>
+                  <option value="35">중랑구</option>
+                </select>
+                <input
+                  id="endpoint_text"
+                  type="text"
+                  name="endpoint_add"
+                  value=""
+                  placeholder="상세주소 입력"
+                />
+              </div>
+            </div>
+            <div class="box">
+              <div class="wrap">
+                <div class="id">
+                  <p>이동 수단</p>
+                </div>
+                <div class="id_textBox">
+                  <select name="transport" class="select_style">
+                    <option selected value="" disabled>선택</option>
+                    <option value="1">택시</option>
+                    <option value="2">지하철</option>
+                    <option value="3">자차</option>
+                    <option value="4">도보</option>
+                  </select>
+                </div>
+              </div>
+              <div class="box-right">
+                <div class="wrap">
+                  <div class="id">
+                    <p>모집 인원</p>
+                  </div>
+                  <div class="id_textBox">
+                    <input
+                      id="count_text"
+                      type="text"
+                      name="count"
+                      value=""
+                      placeholder=""
+                    />
+                  </div>
+                  <p>명</p>
+                </div>
+              </div>
+            </div>
+            <div class="wrap">
+              <div class="id">
+                <p>출발 시각</p>
+              </div>
+              <div class="id_textBox">
+                <input
+                  id="time_text"
+                  type="text"
+                  name="time"
+                  value=""
+                  placeholder="텍스트 입력"
+                />
+              </div>
+            </div>
+            <div class="wrap-content">
+              <div class="id-content">
+                <p>내용</p>
+              </div>
+              <div class="content_textBox">
+                <textarea
+                  id="content_text"
+                  type="text"
+                  name="content"
+                  placeholder="텍스트 입력"
+                ></textarea>
+              </div>
+            </div>
+            <div class="write-btn">
+              <input id="write" type="submit" value="등록" />
+            </div>
+          </div>
+        </form>
+      </section>
+    </section>
+    <script src="../../static/js/navigateTo/go-back.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  color: #333333;
+}
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: auto;
+    -ms-overflow-style: none;
+ .box::-webkit-scrollbar{
+   display:none;
+ }
+  background-color: #f6f6f6;
+}
+header.hd {
+  height: 48px;
+  border-bottom: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  padding-top: 14px;
+  background-color: white;
+}
+img#back {
+  position: absolute;
+  left: 29.25px;
+}
+span#header-title {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+section.accept-sec {
+  box-sizing: border-box;
+  height: 252px;
+  padding: 27px 17px 0;
+}
+div#accept-sec-hd {
+  text-align: left;
+  font-weight: bold;
+  font-size: 15px;
+}
+.accept-whitebox {
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  width: 90%;
+  height: 154px;
+  box-shadow: 0px 2px 2px 2px #f6f6f6;
+  border-radius: 8px;
+  background-color: white;
+}
+.accept-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 17px 13px;
+  overflow: auto;
+}
+.accept-box {
+  height: 20px;
+  position: relative;
+  margin-bottom: 7.5px;
+}
+div#accept-num,
+#accept-profile-img,
+#accept-nickname,
+#accept-uschool,
+#accept-cancel {
+  position: absolute;
+}
+div#accept-num {
+  top: 2px;
+  left: 0px;
+  font-size: 12px;
+}
+div#accept-profile-wrap {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0px 2px 2px 2px #f6f6f6;
+  /* margin: auto; */
+  margin-left: 30px;
+}
+img#accept-profile {
+  box-sizing: border-box;
+  height: 7.27px;
+  border-radius: 50px;
+  /* padding-top: 0px; */
+  position: relative;
+  z-index: 1;
+  /* border: 1px solid; */
+}
+div#accept-nickname {
+  left: 70px;
+  top: 3px;
+  font-size: 13px;
+  font-weight: bold;
+}
+div#accept-uschool {
+  left: 128px;
+  top: 5px;
+  font-size: 8px;
+}
+div#accept-cancel {
+  right: 16px;
+  top: 1px;
+  border: 1px solid #72a7a8;
+  border-radius: 11px;
+  box-sizing: border-box;
+  width: 52px;
+  height: 17px;
+  color: #285f60;
+  font-size: 9px;
+  font-weight: bold;
+  padding-top: 2px;
+}
+
+div#preaccept-sec-hd {
+  margin-left: 17px;
+  text-align: left;
+  margin-top: 21px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.preaccept-wrap {
+  height: 100%;
+  padding: 20px 10px 0;
+}

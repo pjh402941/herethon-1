@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 프로필 수정</title>
+    <link rel="stylesheet" href="../../static/css/profile-edit.css" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+    <style>
+      input[type="file"] {
+        position: relative;
+        height: 100%;
+        margin-left: -193px;
+        margin-top: 22px;
+      }
+      input[type="file"]::file-selector-button {
+        position: absolute;
+        right: 0px;
+        width: 20px;
+        color: transparent;
+      }
+
+      /* Faked label styles and icon */
+      input[type="file"]::before {
+        position: absolute;
+        pointer-events: none;
+        top: 4px;
+        right: 10px;
+        content: "사진 선택";
+        color: #1c4747;
+        font-family: "Pretendard-Regular", sans-serif;
+        font-size: 11px;
+        z-index: 2;
+      }
+      #reupload::before {
+        content: "재업로드";
+        top: 14px;
+        right: 11px;
+      }
+      /* ------- From Step 1 ------- */
+
+      /* file upload button */
+      input[type="file"]::file-selector-button {
+        margin: 0;
+        width: 61px;
+        height: 22px;
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid #1c4747;
+        border-radius: 11px;
+        transition: background-color 200ms;
+      }
+
+      /* file upload button hover state */
+      input[type="file"]::file-selector-button:hover {
+        background-color: #f3f4f6;
+      }
+
+      /* file upload button active state */
+      input[type="file"]::file-selector-button:active {
+        background-color: #e5e7eb;
+      }
+      div#file-hide {
+        position: absolute;
+        height: 50px;
+        width: 200px;
+        background-color: white;
+        z-index: 1;
+        top: 76px;
+        left: -173px;
+      }
+      #profile-preview img {
+        width: 61px;
+        height: 61px;
+        position: absolute;
+        z-index: 1;
+        top: 5px;
+        left: 5px;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="hd">
+        <img
+          id="back"
+          src="../../static/image/back.png"
+          alt="back"
+          width="17.5px"
+          onclick="goBack()"
+        />
+        <span id="header-title">프로필 수정</span>
+      </header>
+
+      <div class="bd">
+        <form class="info-wrap" action="/" method="POST">
+          <div class="profile-box-wrap">
+            <div class="profile-img-box">
+              <img
+                id="preview"
+                class="profile-img"
+                src="../../static/image/profile.jpg"
+                width="63px"
+              />
+              <div id="profile-preview"></div>
+            </div>
+            <input
+              type="file"
+              onchange="setImageFn(this, 'profile-upload', 'profile-preview')"
+              id="profile-upload"
+            />
+
+            <div id="file-hide"></div>
+          </div>
+          <div class="info-box">
+            <div id="uid" class="info">
+              김사자
+              <img
+                class="verified"
+                src="../../static/image/check.png"
+                width="20px"
+              />
+              <!-- 인증되지 않은 사용자 -->
+              <!-- <span class="unverified">인증이 필요합니다</span> -->
+            </div>
+            <div id="nickname" class="info">어흥이</div>
+            <div id="uemail" class="info">hungrylion@likelion.net</div>
+            <div id="uschool" class="info">
+              멋사여자대학교
+              <img
+                class="verified"
+                src="../../static/image/check.png"
+                width="20px"
+              />
+              <!-- 인증되지 않은 사용자 -->
+              <!-- <span class="unverified">인증이 필요합니다</span> -->
+            </div>
+
+            <span id="file-title">School Photo</span>
+            <input
+              type="file"
+              onchange="setImageFn(this, 'reupload', 'reupload-preview')"
+              id="reupload"
+            />
+            <div id="reupload-preview"></div>
+          </div>
+          <button
+            id="bt-save"
+            type="submit"
+            value="submit"
+            onclick="goToMyPage()"
+          >
+            <span>저장</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../static/js/div change input.js"></script>
+    <script src="../../static/js/hide-previw.js"></script>
+    <script src="../../static/js/navigateTo/go-back.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+    <script src="../../static/js/navigateTo/to-mypage.js"></script>
+  </body>
+</html>

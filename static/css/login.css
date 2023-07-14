@@ -1,0 +1,90 @@
+@media (hover: hover) {
+  html {
+    width: 375px;
+    margin: 0 auto;
+  }
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  color: #333333;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+span {
+  font-family: "Pretendard-Regular";
+}
+.container {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header.logo-wrap {
+  margin-top: 14px;
+}
+#logo {
+  width: 102px;
+}
+
+.login-box {
+  width: 303.5px;
+  margin: 0 auto;
+}
+.login-form-wrap {
+  padding-top: 41.58px;
+}
+input {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 1px solid #1c4747;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  width: 303.5px;
+}
+input::placeholder {
+  font-weight: lighter;
+}
+input#upw {
+  margin-top: 21px;
+}
+div#forgot {
+  text-align: right;
+  font-size: 10px;
+  color: #333333;
+  width: 303.5px;
+  margin: 10px auto 0;
+}
+button#bt-login {
+  margin-top: 94px;
+  width: 236px;
+  height: 48px;
+  border: none;
+  background-color: #1c4747;
+  font-size: 18px;
+  color: white;
+  border-radius: 50px;
+}
+
+.bt-wrap {
+  margin-top: 17px;
+}
+button#join-bt {
+  width: 53px;
+  font-size: 10px;
+  border: none;
+  background-color: white;
+  color: #333333;
+}
