@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>신청현황</title>
+    <link rel="stylesheet" href="/static/css/post_status.css" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+    <style>
+      @media (hover: hover) {
+        html {
+          width: 375px;
+          margin: 0 auto;
+        }
+      }
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+        color: #333333;
+      }
+      body {
+        margin: 0;
+        font-family: "Pretendard-Regular";
+      }
+      .container {
+        position: relative;
+        height: 100%;
+        margin: 0 auto;
+        text-align: center;
+        overflow: auto;
+        background-color: #f6f6f6;
+      }
+      header.hd {
+        height: 48px;
+        border-bottom: 1px solid #b3b3b3;
+        box-sizing: border-box;
+        padding-top: 14px;
+        background-color: white;
+      }
+      img#back {
+        position: absolute;
+        left: 29.25px;
+      }
+      span#header-title {
+        font-size: 17px;
+        font-weight: bold;
+      }
+
+      div#preaccept-sec-hd {
+        margin-left: 17px;
+        text-align: left;
+        margin-top: 21px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .preaccept-wrap {
+        height: 100%;
+        padding: 20px 17px 0;
+      }
+      .preaccept-box {
+        height: 44px;
+        margin-bottom: 22px;
+        position: relative;
+      }
+      #preaccept-profile,
+      #preaccept-nickname,
+      #preaccept-uschool,
+      #accept {
+        position: absolute;
+      }
+      div#preaccept-profile-wrap {
+        width: 44px;
+        height: 44px;
+        position: relative;
+        border-radius: 50px;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0px 2px 2px 2px #f6f6f6;
+      }
+      img#preaccept-profile {
+        box-sizing: border-box;
+        height: 16px;
+        border-radius: 50px;
+        z-index: 1;
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+      div#preaccept-nickname {
+        top: 14px;
+        left: 60px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      div#preaccept-uschool {
+        left: 122px;
+        top: 17px;
+        font-size: 10px;
+      }
+      div#accept {
+        right: 16px;
+        top: 13px;
+        width: 43px;
+        height: 25px;
+        background-color: #285f60;
+        color: #f6f6f6;
+        box-sizing: border-box;
+        padding-top: 3px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="hd">
+        <img
+          id="back"
+          src="../../static/image/back.png"
+          alt="back"
+          width="17.5px"
+          onclick="goBack()"
+        />
+        <span id="header-title">학생증 인증 신청 현황</span>
+      </header>
+
+      <div class="bd">
+        <div class="content">
+          <section class="preaccept-sec">
+            <div id="preaccept-sec-hd">신청자 리스트</div>
+            <div class="preaccept-wrap">
+              <div class="preaccept-box">
+                <div id="preaccept-profile-wrap">
+                  <img
+                    id="preaccept-profile"
+                    src="/static/image/profile.png"
+                    width="16px"
+                  />
+                </div>
+                <div id="preaccept-nickname">닉네임</div>
+                <div id="preaccept-uschool">멋사여자대학교</div>
+                <div id="accept">수락</div>
+              </div>
+              <!-- 다른 preaccept-box 요소들 ... -->
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/content-height.js"></script>
+  </body>
+</html>
