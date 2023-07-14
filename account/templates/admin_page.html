@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    {% for user in users %}
+
+    <li><img src="{{ user.school_photo.url }}">
+        <div>{{ user.name }}</div>
+        <div>{{ user.school_name }}</div>
+         {% if user.is_active  %}
+        <a href="{% url 'account:admin_accept' pk=user.pk %}" class="btn btn-danger">승인 완료</a>
+        {% else %}
+        <a href="{% url 'account:admin_accept' pk=user.pk %}" class="btn btn-danger">승인 하기</a>
+        {% endif %}
+    </li>
+
+    {% endfor %}
+
+
+
+{% endblock %}
