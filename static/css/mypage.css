@@ -133,7 +133,7 @@ span#uemail {
   padding-top: 9px;
   font-size: 15px;
 }
-span#profile-edit {
+#profile-edit {
   display: block;
   text-align: right;
   font-size: 10px;
@@ -141,7 +141,10 @@ span#profile-edit {
   top: 197px;
   right: 7px;
 }
-
+#profile-edit:visited{
+    text-decoration:none;
+    color: #333333;
+}
 section.history-sec {
   height: 80%;
 }

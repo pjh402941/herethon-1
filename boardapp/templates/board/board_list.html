@@ -1,42 +1,151 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 위치</title>
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main-location.css' %}" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+  </head>
+  <body>
     <div class="container">
-        <h1>board_list_app</h1>
-        <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
-        {% csrf_token %}
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <p>
-            <a href="{% url 'board_post' %}"><i class="bi-plus"></i>Add Board</a>
-            <a href="{% url 'done_list' %}" class="btn btn-primary" style="float:right">모집 완료 목록</a>
-        </p>
-        <form method="GET" action="{% url 'board_list' %}">
-            <div class="form-group">
-                <label for="address">주소:</label>
-               <select name="address" class="form-control" id="address">
-                {% for value, display_text in address_choices %}
-                <option value="{{ value }}" {% if value == selected_address %}selected{% endif %}>{{ display_text }}</option>
-                 {% endfor %}
-</select>
+      <div class="flick-container">
+        <header class="hd">
+          <div class="top-header-wrap">
+            <img
+              id="back"
+              src="{% static 'image/back.png' %}"
+              alt="back"
+              width="17.5px"
+              onclick="goBack()"
+            />
+            <div class="logo-wrap">
+              <img id="logo" src="{% static 'image/logo.png' %}" alt="logo" />
             </div>
-            <button type="submit" class="btn btn-primary">필터 적용</button>
-        </form>
-        <ul class="list-group">
-            {% for board in boards %}
-            <li class="list-group-item">
-                <a href="{% url 'board_detail' pk=board.pk %}">{{ board.title }}</a>
-                <a href="{% url 'account:profile_page' pk=board.pk %}"> {{ board.user.nickname }} </a>
-                <img src="{{ board.user.user_profile.url }}">
-                {% if board.user == request.user %}
-                <div style="float:right">
-                    <a href="{% url 'board_edit' pk=board.pk %}" class="btn btn-outline-primary">수정하기</a>
-                </div>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+            <a href="{% url 'account:my_page' pk=user.id %}"><img
+              id="mypage"
+              src="{% static 'image/mypage.png' %}"
+              alt="mypage"
+            /></a>
+          </div>
+          <div class="select-wrap">
+            <div class="select-box">
+              <div class="location-box">
+                <form method="GET" action="{% url 'board_list' %}">
+                <select name="address" class="form-control" id="location-select" onchange="this.form.submit()" class="form-control">
+                  <option value="" id="default">
+                    출발 지역 선택&nbsp&nbsp ▼
+                  </option>
 
-{% endblock %}
+                  {% for value, display_text in address_choices %}
+                    <option value="{{ value }}" {% if value == selected_address %}selected{% endif %}>{{ display_text }}</option>
+                 {% endfor %}
+                </select>
+                  </form>
+              </div>
+
+              <div id="univ-select">
+                {{ user.school_name }}
+              </div>
+            </div>
+          </div>
+          <div class="search-wrap">
+            <div class="search-box">
+              <img id="search-img" src="{% static 'image/search.png' %}" />
+              <form
+                action="{% url 'search' %}"
+                method="post"
+                class="search-form"
+                style="border: none"
+              >
+                {% csrf_token %}
+                <fieldset style="border: none">
+                  <input
+                    type="text"
+                    name="q"
+                    id="search"
+                    placeholder="출발지를 ‘ㅇㅇ동’으로 입력해보세요 !"
+                    style="border: none"
+                    value="{{ q }}"
+                  />
+                  <button
+                    type="button"
+                    id="search-submit"
+                    style="display: none"
+                  ></button>
+                </fieldset>
+              </form>
+              <img id="fieldreset" src="{% static 'image/fieldreset.png' %}" />
+            </div>
+          </div>
+        </header>
+        <div class="bd">
+          <div class="border-radius-background"></div>
+          <div class="content">
+            <div class="board-list">
+              <!-- 여기 main-whitebox.html 추가 -->
+              {% for board in boards %}
+              <a href="{% url 'board_detail' pk=board.pk %}"><div class="box-wrap">
+                <div class="profile-img-box">
+                  <img id="profile-img" src="{{ board.user.user_profile.url }}" />
+                </div>
+                <div class="whitebox">
+                  <div class="profile-info-wrap">
+                    <span id="nickname">{{ board.user.nickname }}</span>
+                    <span id="uschool">{{ board.user.school_name }}</span>
+                  </div>
+                  <div class="main-content-wrap">
+                    <h1 id="content-title">{{ board.title }}</h1>
+                    <div class="location-wrap">
+                      <div class="departure-box">
+                        <span id="departure">{{ board.address }}</span>
+                      </div>
+                      <img id="arrow" src="{% static 'image/arrow.png' %}" />
+                      <div class="arrival-box">
+                        <span id="arrival">{{ board.address_end }}</span>
+                      </div>
+                    </div>
+                    <div class="time-wrap">
+                      <span id="time-label">출발 시각</span>
+                      <div id="time-box"><span id="time">{{ board.start_time }}</span></div>
+                    </div>
+                  </div>
+                  <div class="side-content-wrap">
+                    <div class="recruitment-box">
+                      <span id="current-recruitment">{{ board.countcheck }}</span>
+                      <span id="slash">/</span>
+                      <span id="total-recruitment">{{ board.count }}</span>
+                    </div>
+                    <div class="transportation-box">
+                      <span id="transportation">{{ board.way }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <table></table>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="write-button" type="button">
+        <a href="{% url 'board_post' %}"><img
+          id="write-button-img"
+          src="{% static 'image/write.png' %}"
+        /></a>
+      </button>
+    </div>
+    <script src="{% static 'js/content-height.js' %}"></script>
+    <script src="{% static 'js/search-enterkey.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-mypage.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-post-page.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-univ-page.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-write-page.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back.js' %}"></script>
+  </body>
+</html>

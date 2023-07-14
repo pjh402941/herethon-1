@@ -39,9 +39,11 @@ def signup(request):
 def my_page(request, pk):
     user = get_object_or_404(User, pk=pk)
     user_posts = user.posts.all()
+    board = get_object_or_404(Board, pk=pk)
     context = {
         'user': user,
-        'user_posts': user_posts
+        'user_posts': user_posts,
+        'board':board
     }
     return render(request, "my_page.html", context)
 

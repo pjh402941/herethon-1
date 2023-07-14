@@ -1,41 +1,146 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 게시글 작성</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/write.css' %}" />
+  </head>
+  <body>
+    <header class="hd">
+      <img
+        src="{% static 'image/back.png' %}"
+        alt="뒤로가기"
+        onclick="goBack()"
+      />
+      <p>게시글 작성</p>
+    </header>
 
-{% block content %}
-
-    <div class="container">
-        <h1>모집글 추가하기</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div style="margin-bottom: 20px;">
-                            <a href="{% url 'board_list' %}"></a>
-                            <form class="form" method="POST">
-                            {% csrf_token %}
-                                <p class="p2">{{ form.title.label_tag }} {{ form.title }}</p>
-                                <p class="p2">
-                                    <input type="text" class="form-control" name="user"
-                                           value="{{ user.username }}" readonly>
-                                </p>
-                                <p class="p2">{{ form.description.label_tag }} {{ form.description }}</p>
-                                <p class="p2">{{ form.address.label_tag }} {{ form.address }}</p>
-                                <p class="p2">{{ form.startpoint.label_tag }} {{ form.startpoint }}</p>
-                                <p class="p2">{{ form.address_end.label_tag }} {{ form.address_end }}</p>
-                                <p class="p2">{{ form.endpoint.label_tag }} {{ form.endpoint }}</p>
-                                <p class="p2">{{ form.start_time.label_tag }} {{ form.start_time }}</p>
-                                <p class="p2">{{ form.count.label_tag }} {{ form.count }}</p>
-                                <p class="p2">{{ form.way.label_tag }} {{ form.way }}</p>
-
-                        <div style="display:flex; justify-content:flex-end">
-                            <button type="submit" class="request-button">등록</button>
-                        </div>
-                    </form>
-                        </div>
-                    </div>
-                </div>
+    <section class="sec-total">
+      <section class="sec">
+        <form method="POST" action="" name="board" onsubmit="">
+            {% csrf_token %}
+          <div class="sec-title">
+            <input
+              id="title_text"
+              type="text"
+              name="title"
+              value="{{ form.title.value|default_if_none:'' }}"
+              placeholder="게시글의 제목을 입력해주세요."
+            />
+          </div>
+          <div class="sec-profile">
+            <div class="sec-profile-img">
+              <img src="{{ user.user_profile.url }}" alt="프로필 이미지" />
             </div>
-        </div>
-        </div>
-    </div>
-{% endblock %}
+            <div class="sec-profile-content">
+              <div class="sec-profile-id">
+                <p>{{ user.username }}</p>
+              </div>
+              <div class="sec-profile-school">
+                <p>{{ user.school_name }}</p>
+              </div>
+            </div>
+          </div>
+            <input type="hidden" name="user" value="{{ user.username }}">
+          <div class="sec-form">
+            <div class="wrap">
+              <div class="id">
+                <p>출발 장소</p>
+              </div>
+              <div class="id_textBox">
+                  {{ form.address }}
+                <input
+                  id="startpoint_text"
+                  type="text"
+                  name="startpoint"
+                  value="{{ form.startpoint.value|default_if_none:'' }}"
+                  placeholder="상세주소 입력"
+                />
+              </div>
+            </div>
+            <div class="wrap">
+              <div class="id">
+                <p>도착 장소</p>
+              </div>
+              <div class="id_textBox">
+                {{ form.address_end }}
+                <input
+                  id="endpoint_text"
+                  type="text"
+                  name="endpoint"
+                  value="{{ form.endpoint.value|default_if_none:'' }}"
+                  placeholder="상세주소 입력"
+                />
+              </div>
+            </div>
+            <div class="box">
+              <div class="wrap">
+                <div class="id">
+                  <p>이동 수단</p>
+                </div>
+                <div class="id_textBox">
+                  {{ form.way }}
+                </div>
+              </div>
+              <div class="box-right">
+                <div class="wrap">
+                  <div class="id">
+                    <p>모집 인원</p>
+                  </div>
+                  <div class="id_textBox">
+                    <input
+                      id="count_text"
+                      type="text"
+                      name="count"
+                      value="{{ form.count.value|default_if_none:''}}"
+                      placeholder=""
+                    />
+                  </div>
+                  <p>명</p>
+                </div>
+              </div>
+            </div>
+            <div class="wrap">
+              <div class="id">
+                <p>출발 시각</p>
+              </div>
+              <div class="id_textBox">
+                <input
+                  id="time_text"
+                  type="text"
+                  name="start_time"
+                  value="{{ form.start_time.value|default_if_none:''}}"
+                  placeholder="텍스트 입력"
+                />
+              </div>
+            </div>
+            <div class="wrap-content">
+              <div class="id-content">
+                <p>내용</p>
+              </div>
+              <div class="content_textBox">
+                <textarea
+                  id="content_text"
+                  type="text"
+                  name="description"
+                  placeholder="텍스트 입력"
+                >{{ form.description.value|default_if_none:'' }}</textarea>
+              </div>
+            </div>
+            <div class="write-btn">
+              <input id="write" type="submit" value="등록" />
+            </div>
+          </div>
+        </form>
+      </section>
+    </section>
+    <script src="../../static/js/navigateTo/go-back.js"></script>
+    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+  </body>
+</html>

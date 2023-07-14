@@ -7,7 +7,7 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
     />
     <title>ANDO : 프로필 수정</title>
-    <link rel="stylesheet" href="../../static/css/profile-edit.css" />
+    <link rel="stylesheet" href="{% static 'css/profile-edit.css' %}" />
     <link rel="apple-touch-icon-precomposed" href="#" />
     <style>
       input[type="file"] {
@@ -88,7 +88,7 @@
       <header class="hd">
         <img
           id="back"
-          src="../../static/image/back.png"
+          src="{% static 'image/back.png' %}"
           alt="back"
           width="17.5px"
           onclick="goBack()"
@@ -103,7 +103,7 @@
               <img
                 id="preview"
                 class="profile-img"
-                src="../../static/image/profile.jpg"
+                src="{% static 'image/profile.jpg' %}"
                 width="63px"
               />
               <div id="profile-preview"></div>
