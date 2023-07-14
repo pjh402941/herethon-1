@@ -22,8 +22,11 @@ body {
   margin: 0 auto;
   text-align: center;
   overflow: auto;
+  -ms-overflow-style: none;
 }
-
+.container::-webkit-scrollbar {
+  display: none;
+}
 header.hd {
   padding-bottom: 10px;
   background-color: #72a7a8;
@@ -36,8 +39,6 @@ img#back {
   left: 16px;
   top: 20.25px;
   color: white;
-  filter: invert(99%) sepia(4%) saturate(501%) hue-rotate(273deg)
-    brightness(114%) contrast(93%);
 }
 #logo {
   width: 80px;
