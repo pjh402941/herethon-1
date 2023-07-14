@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <h1>모집 완료 목록</h1>
+        <p>
+            <a href="{% url 'board_list' %}" class="btn btn-primary">홈으로</a>
+        </p>
+        <ul class="list-group">
+            {%for done in dones%}
+            <li class="list-group-item">
+                <a href="{% url 'board_detail' pk=done.pk %}">{{ done.title }}</a>
+
+            </li>
+            {%endfor%}
+        </ul>
+
+    </div>
+{% endblock %}

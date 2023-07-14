@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>board_list_app</h1>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <p>
+            <a href="{% url 'board_post' %}"><i class="bi-plus"></i>Add Board</a>
+            <a href="{% url 'done_list' %}" class="btn btn-primary" style="float:right">모집 완료 목록</a>
+        </p>
+        <form method="GET" action="{% url 'board_list' %}">
+            <div class="form-group">
+                <label for="address">주소:</label>
+               <select name="address" class="form-control" id="address">
+                {% for value, display_text in address_choices %}
+                <option value="{{ value }}" {% if value == selected_address %}selected{% endif %}>{{ display_text }}</option>
+                 {% endfor %}
+</select>
+            </div>
+            <button type="submit" class="btn btn-primary">필터 적용</button>
+        </form>
+        <ul class="list-group">
+            {% for board in boards %}
+            <li class="list-group-item">
+                <a href="{% url 'board_detail' pk=board.pk %}">{{ board.title }}</a>
+                <a href="{% url 'account:profile_page' pk=board.pk %}"> {{ board.user.nickname }} </a>
+                <img src="{{ board.user.user_profile.url }}">
+                {% if board.user == request.user %}
+                <div style="float:right">
+                    <a href="{% url 'board_edit' pk=board.pk %}" class="btn btn-outline-primary">수정하기</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

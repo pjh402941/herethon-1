@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ user.username }}</h1>
+<img src="{{ user.user_profile.url }}">
+
+<a href="{% url 'account:my_page_update' pk=user.id %}"> 프로필 수정하기 </a>
+
+{% for list in user_posts %}
+        <li class="list-group-item">
+            <a href="{% url 'board_detail' pk=list.pk %}">{{ list.title }}</a>
+            <a href="{% url 'account:profile_page' pk=list.pk %}"> {{ list.user.nickname }} </a>
+            <img src="{{ list.user.user_profile.url }}">
+        </li>
+{% endfor %}
+
+
+{% endblock %}
