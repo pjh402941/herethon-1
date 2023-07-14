@@ -7,7 +7,8 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
     />
     <title>ANDO : 마이페이지</title>
-    <link rel="stylesheet" href="../../static/css/mypage.css" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
     <link rel="apple-touch-icon-precomposed" href="#" />
   </head>
   <body>
@@ -15,7 +16,7 @@
       <header class="hd">
         <img
           id="back"
-          src="../../static/image/back.png"
+          src="{% static 'image/back.png' %}"
           alt="back"
           width="17.5px"
           onclick="goBack()"
@@ -30,23 +31,24 @@
               <div class="profile-img-box">
                 <img
                   id="profile-img"
-                  src="../../static/image/profile.jpg"
+                  src="{% static 'image/profile.jpg' %}"
                   width="63px"
                 />
               </div>
               <div class="profile-whitebox">
-                <span id="nickname">어흥이</span>
+                <span id="nickname">{{ user.nickname }}</span>
                 <div class="verify-box">
-                  <span id="uschool">멋사여자대학교</span>
+                  <span id="uschool">{{ user.school_name }}</span>
+                  {% if user.is_active %}
                   <span id="school-verified">인증 완료</span>
+                  {% endif %}
                   <!-- 인증이 필요한 사용자 -->
                   <!-- <span id="school-unverified">인증 필요</span> -->
                 </div>
-                <span id="uemail">hungrylion@likelion.net</span>
+                <span id="uemail">{{ user.email }}</span>
               </div>
-              <span id="profile-edit" onclick="goToEditPage()"
-                >프로필 수정하기</span
-              >
+              <span id="profile-edit" href="{% url 'account:my_page_update' pk=user.id %}"
+                >프로필 수정하기</span>
             </div>
           </section>
 
@@ -57,247 +59,51 @@
 
               <div class="board-list">
                 <!-- 여기서부터 whitebox 추가 -->
+                {% for list in user_posts %}
                 <div class="whitebox" onclick="goToMypostPage()">
                   <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
+                    <h1 id="content-title">{{ list.title }}</h1>
                     <div class="location-wrap">
                       <div class="departure-box">
-                        <span id="departure">용산구</span>
+                        <span id="departure">{{ list.startpoint }}</span>
                       </div>
                       <img
                         id="arrow"
-                        src="../../static/image/arrow.png"
+                        src="{% static 'image/arrow.png' %}"
                         width="22px"
                       />
                       <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
+                        <span id="arrival">{{ list.address_end }}</span>
                       </div>
                     </div>
                     <div class="time-wrap">
                       <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
+                      <div id="time-box"><span id="time">{{ list.start_time}}</span></div>
                     </div>
                   </div>
                   <div class="side-content-wrap">
                     <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
+                      <span id="current-recruitment">{{ list.countcheck }}</span>
                       <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
+                      <span id="total-recruitment">{{ list.count }}</span>
                     </div>
                     <div class="transportation-box">
-                      <span id="transportation">택시</span>
+                      <span id="transportation">{{ list.way }}</span>
                     </div>
                   </div>
                 </div>
                 <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
-                <div class="whitebox">
-                  <div class="main-content-wrap">
-                    <h1 id="content-title">동을 포함한 상세주소를 적</h1>
-                    <div class="location-wrap">
-                      <div class="departure-box">
-                        <span id="departure">용산구</span>
-                      </div>
-                      <img
-                        id="arrow"
-                        src="../../static/image/arrow.png"
-                        width="22px"
-                      />
-                      <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
-                      </div>
-                    </div>
-                    <div class="time-wrap">
-                      <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
-                    </div>
-                  </div>
-                  <div class="side-content-wrap">
-                    <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
-                      <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
-                    </div>
-                    <div class="transportation-box">
-                      <span id="transportation">택시</span>
-                    </div>
-                  </div>
-                </div>
-                <table></table>
+                {% endfor %}
               </div>
             </div>
           </section>
         </div>
       </div>
     </div>
-    <script src="../../static/js/content-height.js"></script>
-    <script src="../../static/js/navigateTo/to-mypost-page.js"></script>
-    <script src="../../static/js/navigateTo/to-edit-page.js"></script>
-    <script src="../../static/js/navigateTo/go-back.js"></script>
-    <script src="../../static/js/navigateTo/go-back-nonclick.js"></script>
+    <script src="{% static 'js/content-height.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-mypost-page.js' %}"></script>
+    <script src="{% static 'js/navigateTo/to-edit-page.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back-nonclick.js' %}"></script>
   </body>
 </html>

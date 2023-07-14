@@ -145,7 +145,10 @@ span#uemail {
   top: 197px;
   right: 7px;
 }
-
+#profile-edit:visited{
+    text-decoration:none;
+    color: #333333;
+}
 section.history-sec {
   height: 80%;
 }

@@ -38,10 +38,19 @@
                 <span id="nickname">{{ user.username }}</span>
                 <div class="verify-box">
                   <span id="uschool">{{ user.school_name }}</span>
+<<<<<<< HEAD
+                  {% if user.is_active %}
+=======
+>>>>>>> fd01de497130a369857cca68e4cba37f2d08fc8b
                   <span id="school-verified">인증 완료</span>
+                  {% endif %}
                   <!-- 인증이 필요한 사용자 -->
                   <!-- <span id="school-unverified">인증 필요</span> -->
                 </div>
+<<<<<<< HEAD
+                <span id="uemail">{{ user.email }}</span>
+=======
+>>>>>>> fd01de497130a369857cca68e4cba37f2d08fc8b
               </div>
             </div>
           </section>
@@ -58,7 +67,7 @@
                     <h1 id="content-title">{{ list.title }}</h1>
                     <div class="location-wrap">
                       <div class="departure-box">
-                        <span id="departure">용산구</span>
+                        <span id="departure">{{ list.address }}</span>
                       </div>
                       <img
                         id="arrow"
@@ -66,22 +75,22 @@
                         width="22px"
                       />
                       <div class="arrival-box">
-                        <span id="arrival">ㅇㅇ구</span>
+                        <span id="arrival">{{ list.address_end }}</span>
                       </div>
                     </div>
                     <div class="time-wrap">
                       <span id="time-label">출발 시각</span>
-                      <div id="time-box"><span id="time">00:00</span></div>
+                      <div id="time-box"><span id="time">{{ list.start_time }}</span></div>
                     </div>
                   </div>
                   <div class="side-content-wrap">
                     <div class="recruitment-box">
-                      <span id="current-recruitment">1</span>
+                      <span id="current-recruitment">{{ list.countchange }}</span>
                       <span id="slash">/</span>
-                      <span id="total-recruitment">4</span>
+                      <span id="total-recruitment">{{ list.count }}</span>
                     </div>
                     <div class="transportation-box">
-                      <span id="transportation">택시</span>
+                      <span id="transportation">{{ list.way }}</span>
                     </div>
                   </div>
                 </div>

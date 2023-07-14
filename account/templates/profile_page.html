@@ -1,17 +1,103 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"
+    />
+    <title>ANDO : 프로필</title>
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="hd">
+        <img
+          id="back"
+          src="{% static 'image/back.png' %}"
+          alt="back"
+          width="17.5px"
+          onclick="goBack()"
+        />
+        <span id="header-title">프로필</span>
+      </header>
 
-{% block content %}
+      <div class="bd">
+        <div class="content">
+          <section class="profile-sec">
+            <div class="profile-box-wrap">
+              <div class="profile-img-box">
+                <img
+                  id="profile-img"
+                  src="{% static 'image/profile.jpg' %}"
+                  width="63px"
+                />
+              </div>
+              <div class="profile-whitebox">
+                <span id="nickname">{{ user.username }}</span>
+                <div class="verify-box">
+                  <span id="uschool">{{ user.school_name }}</span>
+                  {% if user.is_active %}
+                  <span id="school-verified">인증 완료</span>
+                  {% endif %}
+                  <!-- 인증이 필요한 사용자 -->
+                  <!-- <span id="school-unverified">인증 필요</span> -->
+                </div>
+                <span id="uemail">{{ user.email }}</span>
+              </div>
+            </div>
+          </section>
 
-<h1>{{ user.username }}</h1>
-<img src="{{ user.user_profile.url }}">
-{% for list in user_posts %}
+          <section class="history-sec">
+            <div class="content">
+              <div id="history-sec-hd">안도한 기록</div>
+              <table></table>
 
-        <li class="list-group-item">
-            <a href="{% url 'board_detail' pk=list.pk %}">{{ list.title }}</a>
-            <a href="{% url 'account:profile_page' pk=list.pk %}"> {{ list.user.nickname }} </a>
-            <img src="{{ list.user.user_profile.url }}">
-        </li>
-{% endfor %}
-
-
-{% endblock %}
+              <div class="board-list">
+                {% for list in user_posts %}
+                <div class="whitebox">
+                  <div class="main-content-wrap">
+                    <h1 id="content-title">{{ list.title }}</h1>
+                    <div class="location-wrap">
+                      <div class="departure-box">
+                        <span id="departure">{{ list.address }}</span>
+                      </div>
+                      <img
+                        id="arrow"
+                        src="{% static 'image/arrow.png' %}"
+                        width="22px"
+                      />
+                      <div class="arrival-box">
+                        <span id="arrival">{{ list.address_end }}</span>
+                      </div>
+                    </div>
+                    <div class="time-wrap">
+                      <span id="time-label">출발 시각</span>
+                      <div id="time-box"><span id="time">{{ list.start_time }}</span></div>
+                    </div>
+                  </div>
+                  <div class="side-content-wrap">
+                    <div class="recruitment-box">
+                      <span id="current-recruitment">{{ list.countchange }}</span>
+                      <span id="slash">/</span>
+                      <span id="total-recruitment">{{ list.count }}</span>
+                    </div>
+                    <div class="transportation-box">
+                      <span id="transportation">{{ list.way }}</span>
+                    </div>
+                  </div>
+                </div>
+                <table></table>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/content-height.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back.js' %}"></script>
+    <script src="{% static 'js/navigateTo/go-back-nonclick.js' %}"></script>
+  </body>
+</html>
