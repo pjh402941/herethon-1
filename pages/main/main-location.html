@@ -43,9 +43,9 @@
                   <option value="" id="default">
                     출발 지역 선택&nbsp&nbsp ▼
                   </option>
-                  {% for value, display_text in address_choices %} <option
-                  value="{{ value }}" {% if value == selected_address
-                  %}selected{% endif %}>{{ display_text }} {% endfor %}
+                  {% for value, display_text in address_choices %}
+                    <option value="{{ value }}" {% if value == selected_address %}selected{% endif %}>{{ display_text }}</option>
+                 {% endfor %}
                 </select>
               </div>
               <div id="univ-select" onclick="goToUnivPage()">
@@ -91,10 +91,7 @@
               {% for board in boards %}
               <div class="box-wrap" onclick="goToPostPage()">
                 <div class="profile-img-box">
-                  <img
-                    id="profile-img"
-                    src="{% static 'image/profile.jpg' %}"
-                  />
+                  <img id="profile-img" src="{% static 'image/profile.jpg' %}" />
                 </div>
                 <div class="whitebox">
                   <div class="profile-info-wrap">
@@ -114,16 +111,12 @@
                     </div>
                     <div class="time-wrap">
                       <span id="time-label">출발 시각</span>
-                      <div id="time-box">
-                        <span id="time">{{ board.start_time }}</span>
-                      </div>
+                      <div id="time-box"><span id="time">{{ board.start_time }}</span></div>
                     </div>
                   </div>
                   <div class="side-content-wrap">
                     <div class="recruitment-box">
-                      <span id="current-recruitment"
-                        >{{ board.countcheck }}</span
-                      >
+                      <span id="current-recruitment">{{ board.countcheck }}</span>
                       <span id="slash">/</span>
                       <span id="total-recruitment">{{ board.count }}</span>
                     </div>
