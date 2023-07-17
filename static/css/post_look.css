@@ -179,10 +179,8 @@ p {
 
 .sec-content-box {
   width: 317px;
-  height: 108px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border-radius: 27px;
   background-color: white;
   box-shadow: 0 4px 4px #b3b3b3;
@@ -192,7 +190,6 @@ p {
 .endpoint-box {
   margin: 18px 30px;
   width: 102.5px;
-  height: 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,11 +223,15 @@ p {
 }
 
 .arrow-box img {
-  width: 22px;
-  margin-bottom: 50px;
+  height: 5px;
+  margin-top: 22px;
 }
 
 /* sec-content-other */
+.wrap-content {
+  margin-right: 15px;
+}
+
 .wrap-content-count {
   display: flex;
   justify-content: space-between;
@@ -273,7 +274,7 @@ p {
 
 .wrap {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 20px;
 }
 
@@ -301,6 +302,7 @@ p {
 
 .id_text {
   margin-left: 10px;
+  padding-top: 3px;
 }
 
 .id_text p {
